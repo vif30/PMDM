@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">P1_Converter</string>
+    <string name="txtFieldBinary">Binary</string>
+    <string name="txtFieldDecimal">Decimal</string>
+    <string name="switchOn">Decimal</string>
+    <string name="switchOff">Binary</string>
+    <string name="btnCalculate">CALCULATE</string>
 </resources>

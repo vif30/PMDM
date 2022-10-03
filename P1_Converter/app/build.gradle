@@ -6,6 +6,9 @@ plugins {
 android {
     namespace 'com.viizfo.p1_converter'
     compileSdk 32
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.viizfo.p1_converter"
