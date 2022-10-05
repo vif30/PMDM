@@ -16,16 +16,16 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.277" />
 
     <EditText
         android:id="@+id/editTextDecimal"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="400dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:enabled="false"
         android:hint="@string/txtFieldDecimal"
@@ -33,10 +33,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextBinary"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Switch
         android:id="@+id/switchBinDec"
@@ -48,10 +48,10 @@
         android:textOn="@string/switchOn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDecimal"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.268" />
 
     <Button
         android:id="@+id/buttonCalculate"
@@ -60,8 +60,9 @@
         android:text="@string/btnCalculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchBinDec"
-        app:layout_constraintVertical_bias="0.641" />
+        app:layout_constraintVertical_bias="0.721" />
 
 </android.support.constraint.ConstraintLayout>
