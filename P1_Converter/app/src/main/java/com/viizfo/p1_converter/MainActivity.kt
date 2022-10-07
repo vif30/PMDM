@@ -48,22 +48,28 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 resultado = binding.editTextBinary.text.toString()
-                if(resultado.isEmpty()){
-                    val text = "Debes ingresar un número"
+                if(!isBinary(resultado.toInt())){
+                    val text = "Debes ingresar un número binario"
                     val duration = Toast.LENGTH_SHORT
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
-                } else if(resultado.length > 10){
-                    val text = "Máximo 10 dígitos"
-                    val duration = Toast.LENGTH_LONG
-                    val toast = Toast.makeText(applicationContext, text, duration)
-                    toast.show()
                 } else {
-                    val converted = convertBinaryToDecimal(resultado.toLong())
-                    binding.editTextDecimal.setText(converted)
+                    if(resultado.isEmpty()){
+                        val text = "Debes ingresar un número"
+                        val duration = Toast.LENGTH_SHORT
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    } else if(resultado.length > 10){
+                        val text = "Máximo 10 dígitos"
+                        val duration = Toast.LENGTH_LONG
+                        val toast = Toast.makeText(applicationContext, text, duration)
+                        toast.show()
+                    } else {
+                        val converted = convertBinaryToDecimal(resultado.toLong())
+                        binding.editTextDecimal.setText(converted)
+                    }
                 }
             }
-
         }
     }
     private fun convertBinaryToDecimal(num: Long): String {
@@ -83,5 +89,17 @@ class MainActivity : AppCompatActivity() {
     private fun convertDecimalToBinary(num: Int): String {
         var num = num
         return toBinaryString(num)
+    }
+    private fun isBinary(num: Int): Boolean{
+        var num = num
+        while (num != 0) {
+            // If the digit is greater
+            // than 1 return false
+            if (num % 10 > 1) {
+                return false;
+            }
+            num = num / 10;
+        }
+        return true;
     }
 }
