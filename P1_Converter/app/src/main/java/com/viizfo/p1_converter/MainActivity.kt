@@ -10,18 +10,15 @@ import kotlin.math.pow
 
 @Suppress("NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
-
-    private var resultado = ""
-    private lateinit var binding: ActivityMainBinding
-
+    private var resultado = ""  //Global variable for the result of the operation
+    private lateinit var binding: ActivityMainBinding   //Creating the binding variable
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        binding.switchBinDec.setOnClickListener {
+        binding.switchBinDec.setOnClickListener {           //Listener on the switch to control the editTexts available for the user to write
             if(binding.switchBinDec.isChecked){
                 binding.editTextDecimal.setText("")
                 binding.editTextBinary.setText("")
@@ -34,51 +31,49 @@ class MainActivity : AppCompatActivity() {
                 binding.editTextBinary.isEnabled = true
             }
         }
-
-        binding.buttonCalculate.setOnClickListener {
-            if(binding.switchBinDec.isChecked){
-                resultado = binding.editTextDecimal.text.toString()
-                if(resultado.isEmpty()){
+        binding.buttonCalculate.setOnClickListener {    //Listener on the button to convert the numbers
+            if(binding.switchBinDec.isChecked){         //if switch = ON converts decimal to binary
+                resultado = binding.editTextDecimal.text.toString()     //it gets the number
+                if(resultado.isEmpty()){                                //if there is no number, it throws a Toast
                     val text = "Debes ingresar un número"
                     val duration = Toast.LENGTH_SHORT
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
-                } else if(resultado.length > 4 || resultado.toInt() > 1023 ){
+                } else if(resultado.length > 4 || resultado.toInt() > 1023 ){   //if theres i a number but its > 4 digits OR > 1023 it throws an error in the same field of the result
                     binding.editTextBinary.setText("Error: Number too large")
-                } else {
+                } else {                                                        //if its all ok, it shows the result in the binary editText
                     val converted = convertDecimalToBinary(resultado.toInt())
                     binding.editTextBinary.setText(converted)
                 }
-            } else {
-                resultado = binding.editTextBinary.text.toString()
-                if(resultado.isEmpty()){
+            } else {    //if switch is IFF
+                resultado = binding.editTextBinary.text.toString()      //it gets the number
+                if(resultado.isEmpty()){                                //if there is no number, it throws a Toast
                     val text = "Debes ingresar un número"
                     val duration = Toast.LENGTH_SHORT
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
-                } else if(resultado.length > 10){
+                } else if(resultado.length > 10){                       //if the number has more than 10 digits, it throws a toast
                     val text = "Máximo 10 dígitos"
                     val duration = Toast.LENGTH_LONG
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
-                } else if(!isBinary(resultado.toInt())){
+                } else if(!isBinary(resultado.toInt())){                //if isn't a binary number, it throws a toast
                     val text = "Debes ingresar un número binario"
                     val duration = Toast.LENGTH_SHORT
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
-                } else {
+                } else {                                                //if its all ok, it shows the result in the binary editText
                     val converted = convertBinaryToDecimal(resultado.toLong())
                     binding.editTextDecimal.setText(converted)
                 }
             }
         }
     }
-    private fun convertBinaryToDecimal(num: Long): String {
+    private fun convertBinaryToDecimal(num: Long): String {     //function to convert binary to decimal
         var num = num
         var decimalNumber = 0
         var i = 0
         var remainder: Long
-
         while (num.toInt() != 0) {
             remainder = num % 10
             num /= 10
@@ -87,18 +82,14 @@ class MainActivity : AppCompatActivity() {
         }
         return decimalNumber.toString()
     }
-    private fun convertDecimalToBinary(num: Int): String {
+    private fun convertDecimalToBinary(num: Int): String {  //function to convert decimal to binary
         val num = num
         return toBinaryString(num)
     }
-    private fun isBinary(num: Int): Boolean{
+    private fun isBinary(num: Int): Boolean{    //function to check if a number is a binary number
         var num = num
         while (num != 0) {
-            // If the digit is greater
-            // than 1 return false
-            if (num % 10 > 1) {
-                return false
-            }
+            if (num % 10 > 1) {return false}
             num /= 10
         }
         return true
