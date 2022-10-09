@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#ecf0f1"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextBinary"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:ems="10"
+        android:fontFamily="monospace"
         android:hint="@string/txtFieldBinary"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,12 +27,14 @@
     <EditText
         android:id="@+id/editTextDecimal"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="56dp"
         android:clickable="false"
         android:ems="10"
         android:enabled="false"
+        android:fontFamily="monospace"
         android:hint="@string/txtFieldDecimal"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,6 +48,8 @@
         android:id="@+id/switchBinDec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:minHeight="48dp"
         android:showText="true"
         android:textOff="@string/switchOff"
         android:textOn="@string/switchOn"
@@ -55,14 +62,16 @@
 
     <Button
         android:id="@+id/buttonCalculate"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#3498db"
+        android:fontFamily="monospace"
         android:text="@string/btnCalculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switchBinDec"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.300" />
 
 </android.support.constraint.ConstraintLayout>
