@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ejemplo1_UD4</string>
+    <string name="btn_go_text">GO NEXT ACTIVITY</string>
+    <string name="back_btn_text">BACK</string>
+</resources>
