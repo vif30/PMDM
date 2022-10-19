@@ -6,7 +6,9 @@ plugins {
 android {
     namespace 'com.viizfo.fragmentexample'
     compileSdk 32
-
+    buildFeatures {
+        viewBinding true
+    }
     defaultConfig {
         applicationId "com.viizfo.fragmentexample"
         minSdk 23
