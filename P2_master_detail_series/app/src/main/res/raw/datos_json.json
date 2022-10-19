@@ -1,0 +1,259 @@
+[
+  {
+    "id": 1,
+    "name": "Under the Dome",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Science-Fiction",
+      "Thriller"
+    ],
+    "status": "Ended",
+    "premiered": "2013-06-24",
+    "officialSite": "http://www.cbs.com/shows/under-the-dome/",
+    "rating": 6.5,       
+    "image": "under_the_dome.jpg",     
+    "summary": "Under the Dome is the story of a small town that is suddenly and inexplicably sealed off from the rest of the world by an enormous transparent dome. The town's inhabitants must deal with surviving the post-apocalyptic conditions while searching for answers about the dome, where it came from and if and when it will go away."
+  },
+  {
+    "id": 2,
+    "name": "Person of Interest",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Action",
+      "Crime"
+    ],
+    "status": "Ended",
+    "premiered": "2011-09-22",
+    "officialSite": "http://www.cbs.com/shows/person_of_interest/",
+    "rating": 9,
+    "image": "persons_of_interest.jpg",
+    "summary": "You are being watched. The government has a secret system, a machine that spies on you every hour of every day. I know because I built it. I designed the Machine to detect acts of terror but it sees everything. Violent crimes involving ordinary people. People like you. Crimes the government considered \"irrelevant\". They wouldn't act so I decided I would. But I needed a partner. Someone with the skills to intervene. Hunted by the authorities, we work in secret. You'll never find us. But victim or perpetrator, if your number is up, we'll find you."
+  },
+  {
+    "id": 3,
+    "name": "Bitten",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Horror",
+      "Romance"
+    ],
+    "status": "Ended",
+    "premiered": "2014-01-11",
+    "officialSite": "http://bitten.space.ca/",
+    "rating": 7.6,
+    "image": "bitten.jpg",
+    "summary": "Based on the critically acclaimed series of novels from Kelley Armstrong. Set in Toronto and upper New York State, Bitten follows the adventures of 28-year-old Elena Michaels, the world's only female werewolf. An orphan, Elena thought she finally found her \"happily ever after\" with her new love Clayton, until her life changed forever. With one small bite, the normal life she craved was taken away and she was left to survive life with the Pack."
+  },
+  {
+    "id": 4,
+    "name": "Arrow",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Action",
+      "Science-Fiction"
+    ],
+    "status": "Running",
+    "premiered": "2012-10-10",
+    "officialSite": "http://www.cwtv.com/shows/arrow",
+    "rating": 7.6,
+    "image":"arrow.jpg",
+    "summary": "After a violent shipwreck, billionaire playboy Oliver Queen was missing and presumed dead for five years before being discovered alive on a remote island in the Pacific. He returned home to Starling City, welcomed by his devoted mother Moira, beloved sister Thea and former flame Laurel Lance. With the aid of his trusted chauffeur/bodyguard John Diggle, the computer-hacking skills of Felicity Smoak and the occasional, reluctant assistance of former police detective, now beat cop, Quentin Lance, Oliver has been waging a one-man war on crime."
+  },
+  {
+    "id": 5,
+    "name": "True Detective",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Crime",
+      "Thriller"
+    ],
+    "status": "Running",
+    "premiered": "2014-01-12",
+    "officialSite": "http://www.hbo.com/true-detective",
+    "rating":  8.3,
+    "image": "true_detective.jpg",
+    "summary": "Touch darkness and darkness touches you back. True Detective centers on troubled cops and the investigations that drive them to the edge. Each season features a new cast and a new case."
+  },
+  {
+    "id": 6,
+    "name": "The 100",
+    "language": "English",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Science-Fiction"
+    ],
+    "status": "Running",
+    "premiered": "2014-03-19",
+    "officialSite": "http://www.cwtv.com/shows/the-100/",
+    "rating": 7.9,
+    "image": "the_100.jpg",
+    "summary": "Ninety-seven years ago, nuclear Armageddon decimated planet Earth, destroying civilization. The only survivors were the 400 inhabitants of 12 international space stations that were in orbit at the time. Three generations have been born in space, the survivors now number 4,000, and resources are running out on their dying \"Ark\" - the 12 stations now linked together and repurposed to keep the survivors alive. Draconian measures including capital punishment and population control are the order of the day, as the leaders of the Ark take ruthless steps to ensure their future, including secretly exiling a group of 100 juvenile prisoners to the Earth's surface to test whether it's habitable."
+  },
+  {
+    "id": 7,
+    "name": "Homeland",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Espionage"
+    ],
+    "status": "Running",
+    "premiered": "2011-10-02",
+    "officialSite": "http://www.sho.com/sho/homeland/home",
+    "rating":  8.3,
+    "image": "homeland.jpg",
+    "summary": "The winner of 6 Emmy Awards including Outstanding Drama Series, Homeland is an edge-of-your-seat sensation. Marine Sergeant Nicholas Brody is both a decorated hero and a serious threat. CIA officer Carrie Mathison is tops in her field despite being bipolar. The delicate dance these two complex characters perform, built on lies, suspicion, and desire, is at the heart of this gripping, emotional thriller in which nothing short of the fate of our nation is at stake."
+  },
+  {
+    "id": 8,
+    "name": "Glee",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Music",
+      "Romance"
+    ],
+    "status": "Ended",
+    "premiered": "2009-05-19",
+    "officialSite": "http://www.fox.com/glee",
+    "rating":  6.7,
+    "image": "glee.jpg",
+    "summary": "Glee is a musical comedy about a group of ambitious and talented young adults in search of strength, acceptance and, ultimately, their voice."
+  },
+  {
+    "id": 9,
+    "name": "Revenge",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Thriller",
+      "Mystery"
+    ],
+    "status": "Ended",
+    "premiered": "2011-09-21",
+    "officialSite": null,
+    "rating":  8,
+    "image": "revenge.jpg",
+    "summary": "This is not a story about forgiveness; Revenge is a show about retribution. Meet Emily Thorne, the newest resident of The Hamptons. When she was a little girl (and known as Amanda Clarke) her father, David Clarke, was framed for a horrific crime and subsequently sent to prison. While serving his time, the conspirators plotted and murdered David in order to prevent the truth from coming out. Emily is now back with a new identity and ready to take vengeance on the people that murdered her father and stole her childhood."
+  },
+  {
+    "id": 10,
+    "name": "Grimm",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Crime",
+      "Supernatural"
+    ],
+    "status": "Ended",
+    "premiered": "2011-10-28",
+    "officialSite": "http://www.nbc.com/grimm",
+    "rating":  8.5,
+    "image": "grimm.jpg",
+    "summary": "Grimm is a drama series inspired by the classic Grimm Brothers' Fairy Tales. After Portland homicide detective Nick Burkhardt discovers he's descended from an elite line of criminal profilers known as \"Grimms\", he increasingly finds his responsibilities as a detective at odds with his new responsibilities as a Grimm."
+  },
+  {
+    "id": 11,
+    "name": "Gotham",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Action",
+      "Crime"
+    ],
+    "status": "Running",
+    "premiered": "2014-09-22",
+    "officialSite": "http://www.fox.com/gotham",
+    "rating": 7.8,
+    "image": "gotham.jpg",
+    "summary": "The good. The evil. The beginning.Everyone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker?Gotham is an origin story of the great DC Comics Super-Villains and vigilantes, revealing an entirely new chapter that has never been told. It follows one cop's rise through a dangerously corrupt city teetering between good and evil, and chronicles the birth of one of the most popular super heroes of our time."
+  },
+  {
+    "id": 12,
+    "name": "Lost Girl",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Fantasy",
+      "Horror"
+    ],
+    "status": "Ended",
+    "runtime": 60,
+    "premiered": "2010-09-12",
+    "officialSite": "http://www.showcase.ca/lostgirl",
+    "rating":  8,
+    "image": "lost_girl.jpg",
+    "summary": "Lost Girl follows supernatural seductress Bo, a Succubus who feeds on the sexual energy of humans. Growing up with human parents, Bo had no reason to believe she was anything other than the girl next door — until she drained her boyfriend to death in their first sexual encounter. Now she has hit the road alone and afraid. <br> She discovers she is one of the Fae, creatures of legend and folklore, who pass as humans while feeding off them secretly and in different ways, as they have for millennia. Relieved yet horrified to find out that she is not alone, Bo decides to take the middle path between the humans and the Fae while embarking on a personal mission to unlock the secrets of her origin.With the help of her human sidekick, Kenzi, and Dyson, a sexy police detective, Bo takes on a challenge every week helping a Fae or human client who comes to her to solve a mystery, or to right a wrong."
+  },
+  {
+    "id": 13,
+    "name": "The Flash",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Action",
+      "Science-Fiction"
+    ],
+    "status": "Running",
+    "premiered": "2014-10-07",
+    "officialSite": "http://www.cwtv.com/shows/the-flash/",
+    "rating": 8.1,
+    "image": "flash.jpg",
+    "summary": "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash!"
+  },
+  {
+    "id": 14,
+    "name": "Continuum",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Crime",
+      "Science-Fiction"
+    ],
+    "status": "Ended",
+    "premiered": "2012-05-27",
+    "officialSite": "http://www.showcase.ca/Continuum",
+    "rating": 8.2,
+    "image": "continuum.jpg",
+    "summary": "Continuum is a one-hour police drama centered on Kiera Cameron, a regular cop from 65 years in the future who finds herself trapped in present day Vancouver. She is alone, a stranger in a strange land, and has eight of the most ruthless criminals from the future, known as Liber8, loose in the city.Lucky for Kiera, through the use of her CMR (cellular memory recall), a futuristic liquid chip technology implanted in her brain, she connects with Alec Sadler, a seventeen-year-old tech genius. When Kiera calls and Alec answers, a very unique partnership begins.Kiera's first desire is to get \"home.\" But until she figures out a way to do that, she must survive in our time period and use all the resources available to her to track and capture the terrorists before they alter history enough to change the course of the future. After all, what's the point of going back if the future isn't the one you left?"
+  },
+  {
+    "id": 15,
+    "name": "Constantine",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Action",
+      "Horror"
+    ],
+    "status": "Ended",
+    "premiered": "2014-10-24",
+    "officialSite": "https://www.nbc.com/constantine",
+    "rating": 7.4,
+    "image": "constantine.jpg",
+    "summary": "Based on the wildly popular comic book series \"Hellblazer\" from DC Comics, seasoned demon hunter and master of the occult John Constantine is armed with a ferocious knowledge of the dark arts and a wickedly naughty wit. He fights the good fight - or at least he did. With his soul already damned to hell, he's decided to abandon his campaign against evil until a series of events thrusts him back into the fray, and he'll do whatever it takes to protect the innocent. With the balance of good and evil on the line‎, Constantine will use his skills to travel the country, find the supernatural terrors that threaten our world and send them back where they belong. After that, who knows... maybe there's hope for him and his soul after all."
+  },
+  {
+    "id": 16,
+    "name": "Penny Dreadful",
+    "language": "English",
+    "genres": [
+      "Drama",
+      "Horror",
+      "Thriller"
+    ],
+    "status": "Ended",
+    "premiered": "2014-05-11",
+    "officialSite": "http://www.sho.com/penny-dreadful",
+    "rating": 8.3,
+    "image": "penny_dreadful.jpg",
+    "summary": "Some of literature's most terrifying characters, including Dr. Frankenstein and his monster, Dorian Gray, and iconic figures from the novel Dracula are lurking in the darkest corners of Victorian London. They are joined by a core of original characters in a complex, frightening new narrative. Penny Dreadful is a psychological thriller filled with dark mystery and suspense, where personal demons from the past can be stronger than vampires, evil spirits and immortal beasts."
+  }
+]
