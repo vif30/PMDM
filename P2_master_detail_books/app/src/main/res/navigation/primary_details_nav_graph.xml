@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/item_list_fragment">
+
+    <fragment
+        android:id="@+id/item_list_fragment"
+        android:name="com.cartatar.p2_master_detail_books.ItemListFragment"
+        android:label="Book List">
+        <action
+            android:id="@+id/show_item_detail"
+            app:destination="@id/item_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/item_detail_fragment"
+        android:name="com.cartatar.p2_master_detail_books.ItemDetailFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_item_detail">
+        <argument
+            android:name="item_id"
+            android:defaultValue=""
+            app:argType="string" />
+    </fragment>
+</navigation>

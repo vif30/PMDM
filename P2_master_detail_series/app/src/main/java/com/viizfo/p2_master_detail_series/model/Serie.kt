@@ -1,18 +1,15 @@
 package com.viizfo.p2_master_detail_series.model
 
+import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.reflect.Type
-import android.content.Context
-import com.google.gson.JsonArray
-import org.json.JSONTokener
-import raw.datos_json
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
+import com.viizfo.p2_master_detail_series.R
 
 data class Serie(
-    var id:Int,
+    var id:String,
     var name:String,
     var languaje:String,
     var genres:Array<String>,
@@ -25,19 +22,26 @@ data class Serie(
     var gson:Gson
 ){
     companion object{
-        var SerieList:MutableList<Serie> = ArrayList()
-        @JvmName("getSerieList1")
-        fun getSerieList(): MutableList<Serie>{
-            SerieList.clear()
-            val raw = context.resources.openRawResource(datos_json)  //Be aware that we need the activity context
+        var SeriesList:MutableList<Serie>? = null
+        fun getItemSeries(context:Context):MutableList<Serie>?{
+            if(SeriesList==null || SeriesList?.size==0)
+                loadItemSeries(context)
+            return SeriesList
+        }
+        private fun loadItemSeries(context: Context){
+            val raw = context.resources.openRawResource(R.raw.datos_json)
             val rd = BufferedReader(InputStreamReader(raw))
 
             val listType: Type = object : TypeToken<MutableList<Serie?>?>() {}.type
 
             val gson = Gson()
+            SeriesList = gson.fromJson(rd, listType)
+        }
 
-            serieList.addAll(gson.fromJson(rd, listType))
-            return serieList
+        fun getSerieById(id:String):Serie?{
+            return SeriesList?.filter { serie ->
+                serie.id == id
+            }?.get(0)
         }
 
     }

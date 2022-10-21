@@ -1,4 +1,4 @@
-package com.viizfo.p2_master_detail_series.placeholder
+package com.cartatar.p2_master_detail_books.placeholder
 
 import java.util.ArrayList
 import java.util.HashMap
@@ -21,7 +21,7 @@ object PlaceholderContent {
      */
     val ITEM_MAP: MutableMap<String, PlaceholderItem> = HashMap()
 
-    private val COUNT = 28
+    private val COUNT = 25
 
     init {
         // Add some sample items.
