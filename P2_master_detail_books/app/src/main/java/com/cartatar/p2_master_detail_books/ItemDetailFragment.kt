@@ -76,9 +76,11 @@ class ItemDetailFragment : Fragment() {
 
         // Show the placeholder content as text in a TextView.
         bookItem?.let {
-            tvDescription.text = it.description
+            tvDescription.text = it.author
         }
     }
+
+
 
     companion object {
         /**

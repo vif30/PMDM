@@ -1,12 +1,15 @@
 package com.viizfo.p2_master_detail_series
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.google.android.material.snackbar.Snackbar
 import com.viizfo.p2_master_detail_series.databinding.FragmentItemDetailBinding
 import com.viizfo.p2_master_detail_series.model.Serie
 
@@ -22,8 +25,7 @@ class ItemDetailFragment : Fragment() {
      * The placeholder content this fragment is presenting.
      */
     private var Serie: Serie? = null
-
-    lateinit var tvItemDetail: TextView
+    lateinit var tvSummary: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
     private var _binding: FragmentItemDetailBinding? = null
@@ -52,7 +54,11 @@ class ItemDetailFragment : Fragment() {
         val rootView = binding.root
 
         toolbarLayout = binding.toolbarLayout
-        tvItemDetail = binding.tvItemDetail
+        tvSummary = binding.tvSummary!!
+
+        binding.fab?.setOnClickListener {
+            Snackbar.make(it,"Publication date: ${Serie?.genres}", Snackbar.LENGTH_SHORT).show()
+        }
 
         updateContent()
         return rootView
@@ -60,10 +66,12 @@ class ItemDetailFragment : Fragment() {
 
     private fun updateContent() {
         toolbarLayout?.title = Serie?.name
+        //binding.appBar?.background = context?.getDrawable(R.drawable.continuum)
 
         // Show the placeholder content as text in a TextView.
         Serie?.let {
-            tvItemDetail.text = it.summary
+            tvSummary.text = it.summary
+
         }
     }
 

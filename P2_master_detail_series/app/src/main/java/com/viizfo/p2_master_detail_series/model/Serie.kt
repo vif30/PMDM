@@ -43,7 +43,11 @@ data class Serie(
             val gson = Gson()
             SeriesList = gson.fromJson(rd, listType)
         }
-
+        fun getSerieById(id:String):Serie?{
+            return SeriesList?.filter { serie ->
+                serie.id == id.toInt()
+            }?.get(0)
+        }
 
 
     }
