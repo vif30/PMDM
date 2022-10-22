@@ -1,20 +1,15 @@
 package com.cartatar.p2_master_detail_books
 
-import android.content.ClipData
 import android.os.Bundle
-import android.view.DragEvent
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import com.cartatar.p2_master_detail_books.placeholder.PlaceholderContent
 import com.cartatar.p2_master_detail_books.databinding.FragmentItemDetailBinding
 import com.cartatar.p2_master_detail_books.model.BookItem
 import com.google.android.material.snackbar.Snackbar
-import com.google.gson.Gson
 
 /**
  * A fragment representing a single Item detail screen.

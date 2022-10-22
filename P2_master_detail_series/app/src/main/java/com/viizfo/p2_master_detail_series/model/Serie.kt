@@ -9,9 +9,9 @@ import java.lang.reflect.Type
 import com.viizfo.p2_master_detail_series.R
 
 data class Serie(
-    var id:String,
+    var id:Int,
     var name:String,
-    var languaje:String,
+    var language:String,
     var genres:Array<String>,
     var status:String,
     var premiered:String,
@@ -21,6 +21,12 @@ data class Serie(
     var summary:String,
     var gson:Gson
 ){
+    fun getSerieById(id:String):Serie?{
+        return SeriesList?.filter { serie ->
+            serie.id == id.toInt()
+        }?.get(0)
+    }
+
     companion object{
         var SeriesList:MutableList<Serie>? = null
         fun getItemSeries(context:Context):MutableList<Serie>?{
@@ -38,11 +44,7 @@ data class Serie(
             SeriesList = gson.fromJson(rd, listType)
         }
 
-        fun getSerieById(id:String):Serie?{
-            return SeriesList?.filter { serie ->
-                serie.id == id
-            }?.get(0)
-        }
+
 
     }
 }
