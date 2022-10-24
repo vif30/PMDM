@@ -3,6 +3,7 @@ package com.viizfo.p2_master_detail_series
 import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Context
+import android.graphics.Color.parseColor
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -98,7 +100,11 @@ class ItemListFragment : Fragment() {
             holder.name.text = serie.name
             holder.language.text = serie.language
             holder.imageSerie.setImageResource(serie.image.getImage(context))
-
+            if(serie.status == "Ended"){
+                holder.card.setCardBackgroundColor(parseColor("#6a1b9a"))
+            } else {
+                holder.card.setCardBackgroundColor(parseColor("#a569bd"))
+            }
             with(holder.itemView) {
                 tag = serie
                 setOnClickListener(onClickListener)
@@ -110,8 +116,9 @@ class ItemListFragment : Fragment() {
         inner class ViewHolder(binding: ItemListContentBinding) :
             RecyclerView.ViewHolder(binding.root) {
             val name: TextView = binding.tvName
-            val language: TextView = binding.tvLanguage
+            val language: TextView = binding.tvLanguageDetail
             val imageSerie: ImageView = binding.ivSerie
+            val card: CardView = binding.card
         }
 
 

@@ -1,11 +1,15 @@
 package com.viizfo.p2_master_detail_series
 import android.os.Bundle
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.google.android.material.snackbar.Snackbar
 import com.viizfo.p2_master_detail_series.databinding.FragmentItemDetailBinding
 import com.viizfo.p2_master_detail_series.model.Serie
@@ -26,6 +30,11 @@ class ItemDetailFragment : Fragment() {
     private var serie: Serie? = null
 
     lateinit var tvSummary: TextView
+    lateinit var tvGenre: TextView
+    lateinit var tvLanguageDetail: TextView
+    lateinit var tvPremiered: TextView
+    lateinit var tvURL: TextView
+    lateinit var extraLayout: LinearLayout
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
     private var _binding: FragmentItemDetailBinding? = null
@@ -56,10 +65,18 @@ class ItemDetailFragment : Fragment() {
 
         toolbarLayout = binding.toolbarLayout
         tvSummary = binding.tvSummary!!
+        tvGenre = binding.tvGenre!!
+        tvLanguageDetail = binding.tvLanguage!!
+        tvPremiered = binding.tvPremiered!!
+        tvURL = binding.tvURL!!
+        extraLayout = binding.extraLayout!!
 
 
         binding.fab?.setOnClickListener {
-            Snackbar.make(it,"Publication date: ${serie?.genres}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it,"Press accept for more info", Snackbar.LENGTH_LONG)
+                .setAction("ACCEPT"){
+                    extraLayout.isVisible = true
+                }.show()
         }
 
         updateContent()
@@ -76,6 +93,16 @@ class ItemDetailFragment : Fragment() {
         // Show the placeholder content as text in a TextView.
         serie?.let {
             tvSummary.text = it.summary
+            binding.appBar?.background = context?.getDrawable(serie!!.image.getImage(requireContext()))
+            var generos : String = ""
+            for (i in it.genres){
+                generos += i + ", "
+            }
+            tvGenre.text = generos
+            tvLanguageDetail.text = it.language
+            tvPremiered.text = it.premiered
+            tvURL.text = it.officialSite
+
 
         }
     }
