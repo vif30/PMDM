@@ -1,13 +1,10 @@
 package com.viizfo.p2_master_detail_series
-
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.snackbar.Snackbar
 import com.viizfo.p2_master_detail_series.databinding.FragmentItemDetailBinding
@@ -19,12 +16,15 @@ import com.viizfo.p2_master_detail_series.model.Serie
  * in two-pane mode (on larger screen devices) or self-contained
  * on handsets.
  */
+
+
 class ItemDetailFragment : Fragment() {
 
     /**
      * The placeholder content this fragment is presenting.
      */
-    private var Serie: Serie? = null
+    private var serie: Serie? = null
+
     lateinit var tvSummary: TextView
     private var toolbarLayout: CollapsingToolbarLayout? = null
 
@@ -35,12 +35,13 @@ class ItemDetailFragment : Fragment() {
     private val binding get() = _binding!!
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
-                Serie = it.getString(ARG_ITEM_ID)?.let{ id -> Serie?.getSerieById(id)}
+                serie = it.getString(ARG_ITEM_ID)?.let { id -> Serie.getSerieById(id) }
             }
         }
     }
@@ -56,24 +57,30 @@ class ItemDetailFragment : Fragment() {
         toolbarLayout = binding.toolbarLayout
         tvSummary = binding.tvSummary!!
 
+
         binding.fab?.setOnClickListener {
-            Snackbar.make(it,"Publication date: ${Serie?.genres}", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it,"Publication date: ${serie?.genres}", Snackbar.LENGTH_SHORT).show()
         }
 
         updateContent()
+
         return rootView
     }
 
     private fun updateContent() {
-        toolbarLayout?.title = Serie?.name
-        //binding.appBar?.background = context?.getDrawable(R.drawable.continuum)
+        toolbarLayout?.title = serie?.name
+        binding.appBar?.background = context?.getDrawable(R.drawable.glee)
+
+
 
         // Show the placeholder content as text in a TextView.
-        Serie?.let {
+        serie?.let {
             tvSummary.text = it.summary
 
         }
     }
+
+
 
     companion object {
         /**

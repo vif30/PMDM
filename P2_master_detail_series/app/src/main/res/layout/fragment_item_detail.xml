@@ -53,8 +53,21 @@
             android:text="prueba"
             android:textIsSelectable="true"
             tools:context="com.viizfo.p2_master_detail_series.ItemDetailHostActivity" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
     </androidx.core.widget.NestedScrollView>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
