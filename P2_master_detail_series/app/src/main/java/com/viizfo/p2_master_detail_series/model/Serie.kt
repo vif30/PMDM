@@ -16,7 +16,7 @@ data class Serie(
     var status:String,
     var premiered:String,
     var officialSite:String,
-    var ratting:Float,
+    var rating:Float,
     var image:String,
     var summary:String,
     var gson:Gson

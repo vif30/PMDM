@@ -73,10 +73,18 @@ class ItemDetailFragment : Fragment() {
 
 
         binding.fab?.setOnClickListener {
-            Snackbar.make(it,"Press accept for more info", Snackbar.LENGTH_LONG)
-                .setAction("ACCEPT"){
-                    extraLayout.isVisible = true
-                }.show()
+            if(extraLayout.isVisible){
+                Snackbar.make(it,"Hide extra info?", Snackbar.LENGTH_LONG)
+                    .setAction("ACCEPT"){
+                        extraLayout.isVisible = false
+                    }.show()
+            } else {
+                Snackbar.make(it,"Press accept for more info", Snackbar.LENGTH_LONG)
+                    .setAction("ACCEPT"){
+                        extraLayout.isVisible = true
+                    }.show()
+            }
+
         }
 
         updateContent()

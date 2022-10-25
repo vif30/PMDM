@@ -1,17 +1,14 @@
 package com.viizfo.p2_master_detail_series
 
-import android.content.ClipData
-import android.content.ClipDescription
 import android.content.Context
 import android.graphics.Color.parseColor
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -19,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.viizfo.p2_master_detail_series.databinding.FragmentItemListBinding
 import com.viizfo.p2_master_detail_series.databinding.ItemListContentBinding
 import com.viizfo.p2_master_detail_series.model.Serie
-import com.viizfo.p2_master_detail_series.placeholder.PlaceholderContent
 
 
 class ItemListFragment : Fragment() {
@@ -100,6 +96,7 @@ class ItemListFragment : Fragment() {
             holder.name.text = serie.name
             holder.language.text = serie.language
             holder.imageSerie.setImageResource(serie.image.getImage(context))
+            holder.ratingBar.rating = serie.rating/2
             if(serie.status == "Ended"){
                 holder.card.setCardBackgroundColor(parseColor("#6a1b9a"))
             } else {
@@ -119,6 +116,7 @@ class ItemListFragment : Fragment() {
             val language: TextView = binding.tvLanguageDetail
             val imageSerie: ImageView = binding.ivSerie
             val card: CardView = binding.card
+            val ratingBar: RatingBar = binding.ratingBar
         }
 
 
