@@ -1,7 +1,6 @@
 package com.viizfo.p2_master_detail_series
+
 import android.os.Bundle
-import android.text.Html
-import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
@@ -20,8 +19,6 @@ import com.viizfo.p2_master_detail_series.model.Serie
  * in two-pane mode (on larger screen devices) or self-contained
  * on handsets.
  */
-
-
 class ItemDetailFragment : Fragment() {
 
     /**
@@ -36,14 +33,11 @@ class ItemDetailFragment : Fragment() {
     lateinit var tvURL: TextView
     lateinit var extraLayout: LinearLayout
     private var toolbarLayout: CollapsingToolbarLayout? = null
-
     private var _binding: FragmentItemDetailBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +48,6 @@ class ItemDetailFragment : Fragment() {
             }
         }
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,7 +64,6 @@ class ItemDetailFragment : Fragment() {
         tvURL = binding.tvURL!!
         extraLayout = binding.extraLayout!!
 
-
         binding.fab?.setOnClickListener {
             if(extraLayout.isVisible){
                 Snackbar.make(it,"Hide extra info?", Snackbar.LENGTH_LONG)
@@ -84,19 +76,14 @@ class ItemDetailFragment : Fragment() {
                         extraLayout.isVisible = true
                     }.show()
             }
-
         }
-
         updateContent()
 
         return rootView
     }
-
     private fun updateContent() {
         toolbarLayout?.title = serie?.name
-        binding.appBar?.background = context?.getDrawable(R.drawable.glee)
-
-
+        binding.appBar?.background = context?.getDrawable(R.drawable.noimage)
 
         // Show the placeholder content as text in a TextView.
         serie?.let {
@@ -110,13 +97,8 @@ class ItemDetailFragment : Fragment() {
             tvLanguageDetail.text = it.language
             tvPremiered.text = it.premiered
             tvURL.text = it.officialSite
-
-
         }
     }
-
-
-
     companion object {
         /**
          * The fragment argument representing the item ID that this fragment
@@ -124,7 +106,6 @@ class ItemDetailFragment : Fragment() {
          */
         const val ARG_ITEM_ID = "item_id"
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

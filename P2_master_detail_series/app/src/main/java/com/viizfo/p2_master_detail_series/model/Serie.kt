@@ -21,11 +21,6 @@ data class Serie(
     var summary:String,
     var gson:Gson
 ){
-    fun getSerieById(id:String):Serie?{
-        return SeriesList?.filter { serie ->
-            serie.id == id.toInt()
-        }?.get(0)
-    }
 
     companion object{
         var SeriesList:MutableList<Serie>? = null
