@@ -27,7 +27,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="455dp" />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/item_detail_nav_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="640dp"

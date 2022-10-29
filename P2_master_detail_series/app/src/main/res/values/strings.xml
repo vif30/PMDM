@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">P2_master_detail_series</string>
     <string name="title_item_detail">Item Detail</string>
+    <string name="genres">Genres:</string>
+    <string name="prueba">prueba</string>
+    <string name="language">Language:</string>
+    <string name="premiered_time">Premiered time:</string>
+    <string name="url">URL:</string>
+    <string name="button_to_show_hide_extra_info">Button to show/hide extra info</string>
+    <string name="image_of_the_serie">Image of the serie</string>
 </resources>

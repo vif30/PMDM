@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.viizfo.p2_master_detail_series.databinding.FragmentItemListBinding
 import com.viizfo.p2_master_detail_series.databinding.ItemListContentBinding
 import com.viizfo.p2_master_detail_series.model.Serie
-
+//Fragment that loads the list of series
 class ItemListFragment : Fragment() {
     private var _binding: FragmentItemListBinding? = null
     private val binding get() = _binding!!
@@ -24,15 +24,13 @@ class ItemListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentItemListBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = binding.itemList
-        // Leaving this not using view binding as it relies on if the view is visible the current
-        // layout configuration (layout, layout-sw600dp)
         val itemDetailFragmentContainer: View? = view.findViewById(R.id.item_detail_nav_container)
         val onClickListener = View.OnClickListener { itemView ->
             val Serie = itemView.tag as Serie
@@ -41,6 +39,7 @@ class ItemListFragment : Fragment() {
                 ItemDetailFragment.ARG_ITEM_ID,
                 Serie.id.toString()
             )
+            //Determine if we are on mobile or tablet
             if (itemDetailFragmentContainer != null) {
                 //We are in a wide device (sw-600dp)
                 itemDetailFragmentContainer.findNavController()
@@ -79,6 +78,7 @@ class ItemListFragment : Fragment() {
             holder.language.text = serie.language
             holder.imageSerie.setImageResource(serie.image.getImage(context))
             holder.ratingBar.rating = serie.rating/2
+            //Changing the background color depending on the serie status
             if(serie.status == "Ended"){
                 holder.card.setCardBackgroundColor(parseColor("#6a1b9a"))
             } else {

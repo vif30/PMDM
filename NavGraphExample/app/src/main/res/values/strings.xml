@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">NavGraphExample</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_screen">LOGIN SCREEN</string>
+    <string name="next">NEXT</string>
+    <string name="user">USER</string>
+    <string name="pass">PASSWORD</string>
+    <string name="birth_date">BIRTH DATE</string>
+    <string name="email">EMAIL</string>
+    <string name="info_screen">INFO SCREEN</string>
+    <string name="home_screen">HOME SCREEN</string>
+</resources>

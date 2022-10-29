@@ -9,6 +9,7 @@ import java.lang.reflect.Type
 import com.viizfo.p2_master_detail_series.R
 
 data class Serie(
+    //Class variables
     var id:Int,
     var name:String,
     var language:String,
@@ -21,15 +22,14 @@ data class Serie(
     var summary:String,
     var gson:Gson
 ){
-
     companion object{
-        var SeriesList:MutableList<Serie>? = null
-        fun getItemSeries(context:Context):MutableList<Serie>?{
+        private var SeriesList:MutableList<Serie>? = null   //List of series
+        fun getItemSeries(context:Context):MutableList<Serie>?{     //Function that returns the list of series
             if(SeriesList==null || SeriesList?.size==0)
                 loadItemSeries(context)
             return SeriesList
         }
-        private fun loadItemSeries(context: Context){
+        private fun loadItemSeries(context: Context){   //Function to load data from JSON file
             val raw = context.resources.openRawResource(R.raw.datos_json)
             val rd = BufferedReader(InputStreamReader(raw))
 
@@ -38,12 +38,10 @@ data class Serie(
             val gson = Gson()
             SeriesList = gson.fromJson(rd, listType)
         }
-        fun getSerieById(id:String):Serie?{
+        fun getSerieById(id:String):Serie?{     //Function to filter series by id
             return SeriesList?.filter { serie ->
                 serie.id == id.toInt()
             }?.get(0)
         }
-
-
     }
 }
