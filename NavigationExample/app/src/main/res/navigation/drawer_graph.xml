@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/drawer1Frament">
+
+    <fragment
+        android:id="@+id/drawer1Frament"
+        android:name="com.viizfo.navigationexample.Drawer1Frament"
+        android:label="fragment_drawer1_frament"
+        tools:layout="@layout/fragment_drawer1" />
+    <fragment
+        android:id="@+id/drawer2Fragment"
+        android:name="com.viizfo.navigationexample.Drawer2Fragment"
+        android:label="fragment_drawer2"
+        tools:layout="@layout/fragment_drawer2" />
+    <fragment
+        android:id="@+id/drawer3Fragment"
+        android:name="com.viizfo.navigationexample.Drawer3Fragment"
+        android:label="fragment_drawer3"
+        tools:layout="@layout/fragment_drawer3" />
+</navigation>
