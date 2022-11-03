@@ -8,16 +8,11 @@
     <fragment
         android:id="@+id/bottom1Fragment"
         android:name="com.viizfo.p3_navigation_splash.Bottom1Fragment"
-        android:label="fragment_bottom1"
+        android:label="BOOKING"
         tools:layout="@layout/fragment_bottom1" />
     <fragment
         android:id="@+id/bottom2Fragment"
         android:name="com.viizfo.p3_navigation_splash.Bottom2Fragment"
-        android:label="fragment_bottom2"
+        android:label="LOCATION"
         tools:layout="@layout/fragment_bottom2" />
-    <fragment
-        android:id="@+id/bottom3Fragment"
-        android:name="com.viizfo.p3_navigation_splash.Bottom3Fragment"
-        android:label="fragment_bottom3"
-        tools:layout="@layout/fragment_bottom3" />
 </navigation>

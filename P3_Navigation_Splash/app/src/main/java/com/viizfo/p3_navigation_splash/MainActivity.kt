@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             .root)
 
         setSupportActionBar(binding.toolbar)
-        binding.fab.setOnClickListener{ view->
+        binding.fab.setOnClickListener{
             startActivity(Intent(this, BottomActivity::class.java))
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout

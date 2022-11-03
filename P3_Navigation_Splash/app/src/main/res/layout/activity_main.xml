@@ -46,7 +46,9 @@
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            app:srcCompat="@android:drawable/ic_menu_call" />
+            app:backgroundTint="@color/design_default_color_error"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/reslogo" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -1,10 +1,12 @@
 package com.viizfo.p3_navigation_splash
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +29,9 @@ class Bottom2Fragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        // Get a handle to the fragment and register the callback.
+        // Get a handle to the fragment and register the callback.
+
     }
 
     override fun onCreateView(
