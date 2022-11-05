@@ -8,16 +8,16 @@
     <fragment
         android:id="@+id/drawer1Fragment"
         android:name="com.viizfo.p3_navigation_splash.Drawer1Fragment"
-        android:label="fragment_drawer1"
+        android:label="HOME"
         tools:layout="@layout/fragment_drawer1" />
     <fragment
         android:id="@+id/drawer2Fragment"
         android:name="com.viizfo.p3_navigation_splash.Drawer2Fragment"
-        android:label="fragment_drawer2"
+        android:label="MENU"
         tools:layout="@layout/fragment_drawer2" />
     <fragment
         android:id="@+id/drawer3Fragment"
         android:name="com.viizfo.p3_navigation_splash.Drawer3Fragment"
-        android:label="fragment_drawer3"
+        android:label="CONTACT"
         tools:layout="@layout/fragment_drawer3" />
 </navigation>

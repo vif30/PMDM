@@ -9,10 +9,19 @@
         android:id="@+id/bottom1Fragment"
         android:name="com.viizfo.p3_navigation_splash.Bottom1Fragment"
         android:label="BOOKING"
-        tools:layout="@layout/fragment_bottom1" />
+        tools:layout="@layout/fragment_bottom1" >
+        <action
+            android:id="@+id/action_bottom1Fragment_to_booking"
+            app:destination="@id/booking" />
+    </fragment>
     <fragment
         android:id="@+id/bottom2Fragment"
         android:name="com.viizfo.p3_navigation_splash.Bottom2Fragment"
         android:label="LOCATION"
         tools:layout="@layout/fragment_bottom2" />
+    <fragment
+        android:id="@+id/booking"
+        android:name="com.viizfo.p3_navigation_splash.booking"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
 </navigation>

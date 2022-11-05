@@ -3,4 +3,32 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_header">pruebaaa</string>
+    <string name="ubi">C/ Riu Nervión 11, 46025 València.</string>
+    <string name="select">Select the desired time</string>
+    <string name="booking">BOOKING</string>
+    <string name="contact">Do you have any doubt? Get in touch with us at info@barfalso.com!</string>
+    <string-array name="hours">
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>13:00</item>
+        <item>13:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>20:00</item>
+        <item>20:30</item>
+        <item>21:00</item>
+        <item>21:30</item>
+        <item>22:30</item>
+        <item>23:00</item>
+    </string-array>
+    <!-- href tag is used to add link-->
+    <!-- link for home text view-->
+    <string name="hyperlink"><a href="https://www.barmistela.com/">barmistela.com</a></string>
+    <!-- link for practice textview-->
+    <string name="hyperlink2"><a href="https://www.instagram.com/barmistela/">Instagram</a></string>
+    <string name="hyperlink3"><a href="https://www.facebook.com/barmistela">Facebook</a></string>
+    <string name="mistela">Mistela is the new bar in Nou Benicalap – Torrefiel. We want it to be your bar, one of those that no longer exist. The best lunches in the neighborhood, dishes of the day, spoon dishes and even an after-dinner drink. From now on, Mistela is yours and we want you to enjoy everything we offer you, also on the terrace. Bar Mistela was born with a neighborhood soul. We have taken care of the interior, the menus and many more details, but make no mistake: you are entering a bar, one of the usual ones, and one of the cool ones. One of those you know you\'ll come back to.</string>
+
 </resources>

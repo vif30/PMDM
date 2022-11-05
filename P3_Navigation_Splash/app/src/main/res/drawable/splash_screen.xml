@@ -3,7 +3,7 @@
     android:opacity="opaque">
     <item android:drawable="@color/white"/>
     <item>
-        <bitmap android:src="@drawable/restlogo"
+        <bitmap android:src="@drawable/logo"
             android:gravity="center" />
     </item>
 </layer-list>

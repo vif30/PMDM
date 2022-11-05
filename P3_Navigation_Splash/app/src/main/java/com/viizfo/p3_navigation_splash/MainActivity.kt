@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.sleep(3000)
+        Thread.sleep(1000)
         setTheme(R.style.Theme_P3_Navigation_Splash)
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }
             .root)
