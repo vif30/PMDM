@@ -17,6 +17,5 @@
     </style>
     <style name="Theme.SplashMistela" parent="Theme.P3_Navigation_Splash">
         <item name="android:windowBackground">@drawable/splash_screen</item>
-        <!-- Customize your theme here. -->
     </style>
 </resources>
