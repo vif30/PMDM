@@ -47,14 +47,13 @@ class Bottom1Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
         val btnBooking: Button = binding.btnBooking
         val spinner: Spinner = binding.spinner
         val calendar: CalendarView = binding.calendarView
-        val sdf = SimpleDateFormat("dd/MM/yy")
+        val sdf = SimpleDateFormat("dd/MM/yy")      //Formatting data calendar
         val date = sdf.format(calendar.date)
-        btnBooking.setOnClickListener{
+        btnBooking.setOnClickListener{          //Listener to send a Toast with the booked time and day
             Toast.makeText(activity, "You booked on " + date + " at " + spinner.selectedItem.toString(), Toast.LENGTH_LONG).show()
             navController?.navigate(R.id.bottom1Fragment)
         }

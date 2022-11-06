@@ -49,7 +49,7 @@
             app:backgroundTint="@color/blue"
             app:fabSize="mini"
             app:rippleColor="@color/yellow"
-            app:srcCompat="@drawable/reslogo" />
+            app:srcCompat="@drawable/bookinglogo" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

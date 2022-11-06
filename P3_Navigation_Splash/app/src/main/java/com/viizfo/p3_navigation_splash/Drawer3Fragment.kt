@@ -47,7 +47,7 @@ class Drawer3Fragment : Fragment() {
         val tvWeb: TextView = binding.tvWeb
         val tvInsta: TextView = binding.tvInsta
         val tvFace: TextView = binding.tvFace
-
+        //Hyperlinks for the social media
         tvWeb.movementMethod = LinkMovementMethod.getInstance()
         tvFace.movementMethod = LinkMovementMethod.getInstance()
         tvInsta.movementMethod = LinkMovementMethod.getInstance()
