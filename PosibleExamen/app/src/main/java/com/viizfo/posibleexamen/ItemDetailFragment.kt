@@ -1,58 +1,39 @@
 package com.viizfo.posibleexamen
 
-import android.content.ClipData
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.DragEvent
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
-import com.viizfo.posibleexamen.placeholder.PlaceholderContent
+import androidx.core.view.isVisible
+import com.google.android.material.snackbar.Snackbar
 import com.viizfo.posibleexamen.databinding.FragmentItemDetailBinding
+import com.viizfo.posibleexamen.model.Serie
 
-/**
- * A fragment representing a single Item detail screen.
- * This fragment is either contained in a [ItemListFragment]
- * in two-pane mode (on larger screen devices) or self-contained
- * on handsets.
- */
 class ItemDetailFragment : Fragment() {
 
-    /**
-     * The placeholder content this fragment is presenting.
-     */
-    private var item: PlaceholderContent.PlaceholderItem? = null
-
-    lateinit var itemDetailTextView: TextView
+    private var serie: Serie? = null
+    private lateinit var tvSummary: TextView
+    private lateinit var tvGenre: TextView
+    private lateinit var tvLanguageDetail: TextView
+    private lateinit var tvPremiered: TextView
+    private lateinit var tvURL: TextView
+    private lateinit var extraLayout: LinearLayout
     private var toolbarLayout: CollapsingToolbarLayout? = null
-
     private var _binding: FragmentItemDetailBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
-
-    private val dragListener = View.OnDragListener { v, event ->
-        if (event.action == DragEvent.ACTION_DROP) {
-            val clipDataItem: ClipData.Item = event.clipData.getItemAt(0)
-            val dragData = clipDataItem.text
-            item = PlaceholderContent.ITEM_MAP[dragData]
-            updateContent()
-        }
-        true
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
             if (it.containsKey(ARG_ITEM_ID)) {
-                // Load the placeholder content specified by the fragment
-                // arguments. In a real-world scenario, use a Loader
-                // to load content from a content provider.
-                item = PlaceholderContent.ITEM_MAP[it.getString(ARG_ITEM_ID)]
+                serie = it.getString(ARG_ITEM_ID)?.let { id -> Serie.getSerieById(id) }
             }
         }
     }
@@ -60,26 +41,53 @@ class ItemDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
         val rootView = binding.root
-
+        //we initialize the elements of the layout
         toolbarLayout = binding.toolbarLayout
-        itemDetailTextView = binding.itemDetail
+        tvSummary = binding.tvSummary!!
+        tvGenre = binding.tvGenre!!
+        tvLanguageDetail = binding.tvLanguage!!
+        tvPremiered = binding.tvPremiered!!
+        tvURL = binding.tvURL!!
+        extraLayout = binding.extraLayout!!
 
+        binding.faButton?.setOnClickListener {      //Listener for the Floating Action Button
+            if(extraLayout.isVisible){
+                Snackbar.make(it,"Hide extra info?", Snackbar.LENGTH_LONG)
+                    .setAction("ACCEPT"){
+                        extraLayout.isVisible = false
+                    }.show()
+            } else {
+                Snackbar.make(it,"Press accept for more info", Snackbar.LENGTH_LONG)
+                    .setAction("ACCEPT"){
+                        extraLayout.isVisible = true
+                    }.show()
+            }
+        }
         updateContent()
-        rootView.setOnDragListener(dragListener)
 
         return rootView
     }
-
-    private fun updateContent() {
-        toolbarLayout?.title = item?.content
+    @SuppressLint("UseCompatLoadingForDrawables")
+    private fun updateContent() {   //Function to load data to the app layout
+        toolbarLayout?.title = serie?.name
+        binding.appBar!!.background = context?.getDrawable(R.drawable.noimage)
 
         // Show the placeholder content as text in a TextView.
-        item?.let {
-            itemDetailTextView.text = it.details
+        serie?.let {
+            tvSummary.text = it.summary
+            binding.appBar!!.background = context?.getDrawable(serie!!.image.getImage(requireContext()))
+            var generos = ""
+            for (i in it.genres){
+                generos += "$i, "
+            }
+            tvGenre.text = generos
+            tvLanguageDetail.text = it.language
+            tvPremiered.text = it.premiered
+            tvURL.text = it.officialSite
         }
     }
 

@@ -14,6 +14,7 @@ class ItemDetailHostActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_PosibleExamen)
         super.onCreate(savedInstanceState)
 
         val binding = ActivityItemDetailBinding.inflate(layoutInflater)

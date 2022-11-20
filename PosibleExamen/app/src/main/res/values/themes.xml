@@ -13,7 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
+    <style name="Theme.MySplashScreen" parent="Theme.PosibleExamen">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
     <style name="Theme.PosibleExamen.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

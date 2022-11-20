@@ -17,7 +17,8 @@
             android:exported="true"
             android:label="@string/app_name"
             android:resizeableActivity="true"
-            tools:targetApi="24">
+            tools:targetApi="24"
+            android:theme="@style/Theme.MySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
