@@ -1,0 +1,76 @@
+[
+  {
+    "question": "¿Qué componentes de una aplicación se utilizan para compartir información?",
+    "answers": [
+      "Proveedores de contenido y Receptor de anuncios",
+      "Vistas y Layouts",
+      "Actividades y servicios",
+      "Intenciones"
+    ],
+    "image": "bc.png",
+    "correct_answer": 1
+  },
+  {
+    "question": "¿Qué componentes de una aplicación se utilizan en el diseño del interfaz de usuario? ",
+    "answers": [
+      "Proveedores de contenido",
+      "Intenciones",
+      "Actividades y servicios",
+      "Vistas y Layouts"
+    ],
+    "image": "layout.jpg",
+    "correct_answer": 4
+  },
+  {
+    "question": "¿Qué componentes de una aplicación se utilizan para iniciar acciones?",
+    "answers": [
+      "Vistas y Layouts",
+      "Actividades y servicios",
+      "Intenciones",
+      "Proveedores de contenido y Receptor de anuncios"
+    ],
+    "image": "intent.jpg",
+    "correct_answer": 3
+  },
+  {
+    "question": "¿Para qué sirve una Intención?",
+    "answers": [
+      "Para arrancar actividades",
+      "Para arrancar servicios",
+      "Para arrancar anuncio de tipo broadcast",
+      "Todas las respuestas son ciertas"
+    ],
+    "image": "",
+    "correct_answer": 4
+  },
+  {
+    "question": "¿Qué hace el sistema cuando se le solicita una Intención que no puede resolver?",
+    "answers": [
+      "Esta posibilidad no puede darse",
+      "Mostrará una lista con actividades relacionadas",
+      "Provocará un error de ejecución"
+    ],
+    "image": "error.jpg",
+    "correct_answer": 3
+  },
+  {
+    "question": "Las intenciones también se utilizan para que las actividades intercambien información. ¿Qué parte de la intención se utiliza con este propósito?\nBundle extras = getIntent().getExtras();\nString s = extras.getString(\"usuario\");\nint i = extras.getInt(\"edad\");",
+    "answers": [
+      "Nombre del componente",
+      "Acción",
+      "Datos",
+      "Extras",
+      "Categoría"
+    ],
+    "image": "",
+    "correct_answer": 4
+  }
+]
+
+
+
+
+
+
+
+
