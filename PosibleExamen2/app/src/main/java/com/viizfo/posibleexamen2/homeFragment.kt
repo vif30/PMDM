@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RadioGroup
-import android.widget.RatingBar
-import android.widget.TextView
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -21,6 +18,10 @@ class homeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+    private lateinit var rb1: RadioButton
+    private lateinit var rb2: RadioButton
+    private lateinit var rb3: RadioButton
+    private lateinit var rb4: RadioButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,9 +71,13 @@ class homeFragment : Fragment() {
         }
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val question = values!![position]
+
             holder.ivQuestion.setImageResource(question.image.getImage(context))
             holder.tvQuestion.text = question.question
-            //Changing the background color depending on the serie status
+            holder.rb1.text = question.answers[0]
+            holder.rb2.text = question.answers[1]
+            holder.rb3.text = question.answers[2]
+            holder.rb4.text = question.answers[3]
 
             with(holder.itemView) {
                 tag = question
@@ -83,9 +88,13 @@ class homeFragment : Fragment() {
         inner class ViewHolder(binding: FragmentQuestionnaireBinding) :
             RecyclerView.ViewHolder(binding.root) {
             private var question: Question? = null
-            private lateinit var rgQuestion: RadioGroup
             val tvQuestion: TextView = binding.tvQuestion
             val ivQuestion: ImageView = binding.ivQuestion
+            val rgQuestion: RadioGroup = binding.rgQuestions
+            val rb1: RadioButton = binding.rb1
+            val rb2: RadioButton = binding.rb2
+            val rb3: RadioButton = binding.rb3
+            val rb4: RadioButton = binding.rb4
         }
     }
 

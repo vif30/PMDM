@@ -13,22 +13,18 @@ data class Question(
     var question:String,
     var answers: Array<String>,
     var image: String,
-    var correct_answer: Inta
+    var correct_answer: Int
 ){
-    fun getQuestionById(id:String):Question?{     //Function to filter series by id
-        return QuestionsList?.filter { question ->
-            question.id == id.toInt()
-        }?.get(0)
-    }
+
 
     companion object{
         private var QuestionsList:MutableList<Question>? = null   //List of series
         fun getItemQuestion(context: Context):MutableList<Question>?{     //Function that returns the list of series
             if(QuestionsList==null || QuestionsList?.size==0)
-                loadItemSeries(context)
+                loadItemQuestions(context)
             return QuestionsList
         }
-        private fun loadItemSeries(context: Context){   //Function to load data from JSON file
+        private fun loadItemQuestions(context: Context){   //Function to load data from JSON file
             val raw = context.resources.openRawResource(R.raw.test)
             val rd = BufferedReader(InputStreamReader(raw))
 

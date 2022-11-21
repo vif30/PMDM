@@ -46,6 +46,8 @@ class questionnaireFragment : Fragment() {
         btnNext = binding.btnNext
         btnPrev = binding.btnPrev
         ivQuestion = binding.ivQuestion
+        binding.btnNext.setOnClickListener(){
+        }
         updateContent()
 
         return rootView
