@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight in Kg" />
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Height in cm" />
+
+        <Button
+            android:id="@+id/btnCalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="calculate body mass index" />
+
+        <TextView
+            android:id="@+id/tvBMI"
+            android:textSize="26sp"
+            android:textColor="@color/purple_500"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus nibh a pretium mattis. Nulla facilisi. Aliquam volutpat tincidunt orci ac volutpat. Donec sit amet aliquam nisl, sed sollicitudin nibh. Suspendisse potenti. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas velit nunc, tempus vitae lectus ut, pellentesque dapibus libero. Etiam laoreet quam sem, sit amet pharetra elit rhoncus quis. Sed hendrerit ac enim vel eleifend. Suspendisse potenti. Nullam eleifend, augue id condimentum bibendum, enim nibh accumsan diam, eu gravida odio turpis rutrum mi. Integer ullamcorper enim diam, vitae pharetra ex ultricies vel. Vivamus lacinia non mauris id blandit. Donec varius rhoncus mauris, vel luctus nibh volutpat at. Morbi turpis dolor, scelerisque vel quam sit amet, ultricies mattis eros. Etiam nisl risus, imperdiet vitae vestibulum faucibus, vehicula eu mauris. Vestibulum bibendum luctus ipsum at rhoncus. Nam sodales metus at turpis porttitor efficitur. Sed dui nisl, viverra in massa vitae, vestibulum bibendum tellus. Phasellus suscipit risus est, vitae hendrerit nunc rhoncus ut. Aenean commodo venenatis lacinia. Nunc fermentum felis ligula, ut placerat metus vulputate ullamcorper. Donec metus diam, aliquet vitae nulla nec, blandit placerat sem. Cras tempus tincidunt velit in pulvinar. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent nec risus eget augue viverra sollicitudin. Maecenas volutpat nunc vel orci rutrum, ac mollis elit sollicitudin. Nulla eget tempor turpis. Curabitur bibendum dapibus metus, sit amet viverra justo imperdiet ac. Duis facilisis sem libero, ut rutrum ipsum pellentesque laoreet." />
+        </ScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
