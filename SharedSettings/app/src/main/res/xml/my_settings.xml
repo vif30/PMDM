@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:key="category1"
+        android:title="First Category">
+
+        <SwitchPreferenceCompat
+            app:key="Notifications"
+            app:title="Activate Notifications" />
+
+        <Preference
+            app:key="feedback"
+            app:title="Send feedback"
+            app:enabled="false"
+            app:summary="Report technical issues or suggest new features" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="Category2"
+        android:title="Second Category">
+
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/country"
+            android:entryValues="@array/cod_country"
+            android:key="list_preference_1"
+            android:title="List preference" />
+
+        <EditTextPreference
+            android:defaultValue="Default value"
+            android:key="edit_text_preference_1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="Edit text preference" />
+
+        <Preference
+            app:key="activity"
+            app:title="Go activity 2">
+            <intent
+                android:targetPackage="com.viizfo.sharedsettings"
+                android:targetClass="com.viizfo.sharedsettings.MainActivity" />
+        </Preference>
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>
