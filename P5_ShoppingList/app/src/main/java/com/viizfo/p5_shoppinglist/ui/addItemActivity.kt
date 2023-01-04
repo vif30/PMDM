@@ -5,13 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.viizfo.p5_shoppinglist.R
 import com.viizfo.p5_shoppinglist.adapters.ItemAdapter
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
 import com.viizfo.p5_shoppinglist.databinding.ActivityAddItemBinding
-import com.viizfo.p5_shoppinglist.databinding.ActivityMainBinding
 import com.viizfo.p5_shoppinglist.viewmodel.ShoppinglistViewModel
 
 class addItemActivity : AppCompatActivity() {
@@ -41,7 +37,7 @@ class addItemActivity : AppCompatActivity() {
         }
 
         binding.btnAdd.setOnClickListener{
-            addTask()
+            addItem()
             openMainActivity()
         }
 
@@ -53,8 +49,8 @@ class addItemActivity : AppCompatActivity() {
     private fun showMessage(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
     }
-    private fun addTask() {
-        shoppingListViewModel.add(binding.eTName.text.toString())
+    private fun addItem() {
+        shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString(), binding.etPrice.text.toString())
     }
 
     private fun updateItem(itemEntity: ItemEntity) {

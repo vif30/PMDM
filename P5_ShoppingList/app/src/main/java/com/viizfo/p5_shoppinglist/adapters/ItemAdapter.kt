@@ -3,7 +3,8 @@ package com.viizfo.p5_shoppinglist.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.viizfo.p5_shoppinglist.R
@@ -31,11 +32,16 @@ class ItemAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val tvItem = view.findViewById<TextView>(R.id.tvName)
+        val tvQuantity = view.findViewById<TextView>(R.id.eTQuantity)
+        val tvPrice = view.findViewById<TextView>(R.id.etPrice)
+        val ibtnDelete = view.findViewById<ImageButton>(R.id.ibtnDelete)
 
-        fun bind(item: ItemEntity, checkTask: (ItemEntity) -> Unit, deleteTask: (ItemEntity) -> Unit) {
+        fun bind(item: ItemEntity, checkItem: (ItemEntity) -> Unit, deleteItem: (ItemEntity) -> Unit) {
             tvItem.text = item.name
+           // tvQuantity.text = item.quantity.toString()
+            //tvPrice.text = item.price.toString()
 
-            itemView.setOnClickListener { deleteTask(item) }
+            ibtnDelete.setOnClickListener { deleteItem(item) }
         }
     }
 }
