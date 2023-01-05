@@ -2,4 +2,7 @@
     <string name="app_name">P5_ShoppingList</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_options">Delete all</string>
+    <string name="backup_options">Make a backup</string>
+    <string name="restore_options">Restore backup</string>
 </resources>

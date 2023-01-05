@@ -29,18 +29,15 @@ class addItemActivity : AppCompatActivity() {
 
         shoppingListViewModel.getAllItems()
 
-
         shoppingListViewModel.updateItemLD.observe(this){ itemUpdated ->
             if(itemUpdated == null){
                 showMessage("Error updating item")
             }
         }
-
         binding.btnAdd.setOnClickListener{
             addItem()
             openMainActivity()
         }
-
     }
     private fun openMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
@@ -50,14 +47,12 @@ class addItemActivity : AppCompatActivity() {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
     }
     private fun addItem() {
-        shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString(), binding.etPrice.text.toString())
+        shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString().toInt(), binding.etPrice.text.toString().toDouble())
     }
-
     private fun updateItem(itemEntity: ItemEntity) {
         shoppingListViewModel.update(itemEntity)
     }
     private fun deleteItem(itemEntity: ItemEntity) {
         shoppingListViewModel.delete(itemEntity)
     }
-
 }

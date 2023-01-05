@@ -26,11 +26,9 @@ class ShoppinglistViewModel(application: Application): AndroidViewModel(applicat
             itemListLD.postValue(myDao.getAllItems())
         }
     }
-    fun add(name:String, quantity: String, price: String) {
+    fun add(name:String, quantity: Int, price: Double) {
         viewModelScope.launch(Dispatchers.IO) {
-            val id = myDao.addItem(ItemEntity(name = name, quantity = quantity.toInt(), price = price.toDouble()))
-            //val quantity = myDao.addItem(ItemEntity(quantity = quantity.toInt()))
-            //val price = myDao.addItem(ItemEntity(price = price.toDouble()))
+            val id = myDao.addItem(ItemEntity(name = name, quantity = quantity, price = price))
             val recoveryItem = myDao.getItemById(id)
             insertItemLD.postValue(recoveryItem)
         }

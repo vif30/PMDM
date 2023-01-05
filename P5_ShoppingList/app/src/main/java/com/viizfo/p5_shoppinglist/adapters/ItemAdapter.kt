@@ -3,7 +3,6 @@ package com.viizfo.p5_shoppinglist.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -25,22 +24,21 @@ class ItemAdapter(
         holder.bind(item, checkItem, deleteItem)
     }
 
-
     override fun getItemCount() = items.size
-
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val tvItem = view.findViewById<TextView>(R.id.tvName)
-        val tvQuantity = view.findViewById<TextView>(R.id.eTQuantity)
-        val tvPrice = view.findViewById<TextView>(R.id.etPrice)
+        val tvQuantity = view.findViewById<TextView>(R.id.tvQuantity)
+        val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
+        val tvTotalPrice = view.findViewById<TextView>(R.id.tvTotalPrice)
         val ibtnDelete = view.findViewById<ImageButton>(R.id.ibtnDelete)
 
         fun bind(item: ItemEntity, checkItem: (ItemEntity) -> Unit, deleteItem: (ItemEntity) -> Unit) {
             tvItem.text = item.name
-           // tvQuantity.text = item.quantity.toString()
-            //tvPrice.text = item.price.toString()
-
+            tvQuantity.text = item.quantity.toString()
+            tvPrice.text = item.price.toString()
+            tvTotalPrice.text = String.format("%.2f",(item.price * item.quantity))
             ibtnDelete.setOnClickListener { deleteItem(item) }
         }
     }
