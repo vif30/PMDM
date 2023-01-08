@@ -1,12 +1,10 @@
 package com.viizfo.p5_shoppinglist.ui
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var recyclerView: RecyclerView
     var items: MutableList<ItemEntity> = mutableListOf()
-    var total: Double = 0.0
     private lateinit var shoppingListViewModel:ShoppinglistViewModel
 
     lateinit var adapter: ItemAdapter
@@ -40,30 +37,25 @@ class MainActivity : AppCompatActivity() {
             items.clear()
             items.addAll(it)
             recyclerView.adapter?.notifyDataSetChanged()
-            for(i in items){
-                total += i.price * i.quantity
-            }
-            binding.tvTotal.text =  String.format("%.2f",(total))
+            binding.tvTotal.text =  calculateTotal()
         }
         shoppingListViewModel.updateItemLD.observe(this){ itemUpdated ->
             if(itemUpdated == null){
                 showMessage("Error updating item")
             }
+            else{
+                binding.tvTotal.text = calculateTotal()
+            }
         }
-
         shoppingListViewModel.deleteItemLD.observe(this){ id ->
             if(id != -1){
                 val item = items.filter {
                     it.id == id
                 }[0]
                 val pos = items.indexOf(item)
-                item.quantity -= 1
-                if(item.quantity == 0) {
-                    items.removeAt(pos)
-                }
+                items.removeAt(pos)
                 recyclerView.adapter?.notifyItemRemoved(pos)
-                total -= (item.quantity * item.price)
-                binding.tvTotal.text = total.toString()
+                binding.tvTotal.text = calculateTotal()
             }else{
                 showMessage("Error deleting item")
             }
@@ -89,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
     }
 
-    private fun openAddActivity() {
+     fun openAddActivity() {
         val intent = Intent(this, addItemActivity::class.java)
         startActivity(intent)
     }
@@ -111,4 +103,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun calculateTotal(): String {
+        var total: Double = 0.0
+        for(i in items){
+            total += i.price * i.quantity
+        }
+        return String.format("%.2f",(total))
+    }
 }

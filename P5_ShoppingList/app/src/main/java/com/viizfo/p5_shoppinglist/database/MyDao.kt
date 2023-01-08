@@ -12,4 +12,5 @@ interface MyDao {
     fun updateItem(itemEntity: ItemEntity):Int //Number of affected rows
 
     fun deleteItem(itemEntity: ItemEntity):Int //Number of affected rows
+
 }

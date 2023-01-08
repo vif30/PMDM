@@ -20,7 +20,6 @@ class ShoppinglistViewModel(application: Application): AndroidViewModel(applicat
     val deleteItemLD:MutableLiveData<Int> = MutableLiveData()
     val insertItemLD:MutableLiveData<ItemEntity> = MutableLiveData()
 
-
     fun getAllItems(){
         viewModelScope.launch(Dispatchers.IO) {
             itemListLD.postValue(myDao.getAllItems())

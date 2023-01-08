@@ -3,37 +3,30 @@ package com.viizfo.p5_shoppinglist.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.viizfo.p5_shoppinglist.adapters.ItemAdapter
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
-import com.viizfo.p5_shoppinglist.databinding.ActivityAddItemBinding
+
+import com.viizfo.p5_shoppinglist.databinding.ActivityEditItemBinding
 import com.viizfo.p5_shoppinglist.viewmodel.ShoppinglistViewModel
 
-class addItemActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAddItemBinding
-
+class editItemActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityEditItemBinding
     var items: MutableList<ItemEntity> = mutableListOf()
-
-    private lateinit var shoppingListViewModel:ShoppinglistViewModel
-
+    private lateinit var shoppingListViewModel: ShoppinglistViewModel
     lateinit var adapter: ItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(ActivityAddItemBinding.inflate(layoutInflater).also {
+        setContentView(ActivityEditItemBinding.inflate(layoutInflater).also {
             binding = it
         }.root)
-
         shoppingListViewModel = ViewModelProvider(this)[ShoppinglistViewModel::class.java]
         shoppingListViewModel.getAllItems()
         shoppingListViewModel.updateItemLD.observe(this){ itemUpdated ->
-            if(itemUpdated == null){
-                showMessage("Error updating item")
-            }
+
         }
-        binding.btnAdd.setOnClickListener{
-            addItem()
+        binding.btnEdit.setOnClickListener{
             openMainActivity()
         }
     }
@@ -41,16 +34,12 @@ class addItemActivity : AppCompatActivity() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-    private fun showMessage(s: String) {
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
-    }
-    private fun addItem() {
-        shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString().toInt(), binding.etPrice.text.toString().toDouble())
+    private fun editItem(item: ItemEntity) {
+        val newItem = item.copy(quantity = binding.eTQuantity.text.toString().toInt(), price = binding.etPrice.text.toString().toDouble())
+        updateItem(newItem)
     }
     private fun updateItem(itemEntity: ItemEntity) {
         shoppingListViewModel.update(itemEntity)
     }
-    private fun deleteItem(itemEntity: ItemEntity) {
-        shoppingListViewModel.delete(itemEntity)
-    }
+
 }

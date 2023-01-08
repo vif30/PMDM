@@ -24,13 +24,14 @@ class TasksAdapter(
         holder.bind(item, checkTask, deleteTask)
     }
     override fun getItemCount() = tasks.size
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val tvTask = view.findViewById<TextView>(R.id.tvTask)
         val cbIsDone = view.findViewById<CheckBox>(R.id.cbIsDone)
         fun bind(task: TaskEntity, checkTask: (TaskEntity) -> Unit, deleteTask: (TaskEntity) -> Unit) {
             tvTask.text = task.name
             cbIsDone.isChecked = task.isDone
-            cbIsDone.setOnClickListener{checkTask(task)}
+            cbIsDone.setOnClickListener{ checkTask(task) }
             itemView.setOnClickListener { deleteTask(task) }
         }
     }

@@ -15,8 +15,8 @@ interface ItemDAO:MyDao {
     override fun getItemById(id: Long): ItemEntity
 
     @Update
-    override fun updateItem(taskEntity: ItemEntity):Int
+    override fun updateItem(itemEntity: ItemEntity):Int
 
     @Delete
-    override fun deleteItem(taskEntity: ItemEntity):Int
+    override fun deleteItem(itemEntity: ItemEntity):Int
 }
