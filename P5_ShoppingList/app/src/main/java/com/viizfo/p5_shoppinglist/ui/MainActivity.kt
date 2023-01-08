@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView.adapter?.notifyItemInserted(items.size)
         }
 
+
         binding.fabItem.setOnClickListener {
             openAddActivity()
         }
@@ -75,6 +77,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu (menu: Menu?): Boolean {
         menuInflater.inflate (R.menu.my_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.delete -> {
+                for(i in items){
+                    deleteItem(i)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun showMessage(s: String) {
