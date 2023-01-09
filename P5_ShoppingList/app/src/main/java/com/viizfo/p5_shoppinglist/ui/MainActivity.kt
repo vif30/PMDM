@@ -10,19 +10,24 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.viizfo.p5_shoppinglist.R
 import com.viizfo.p5_shoppinglist.adapters.ItemAdapter
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
 import com.viizfo.p5_shoppinglist.databinding.ActivityMainBinding
 import com.viizfo.p5_shoppinglist.viewmodel.ShoppinglistViewModel
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.lang.reflect.Type
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var recyclerView: RecyclerView
-    var items: MutableList<ItemEntity> = mutableListOf()
+    private lateinit var recyclerView: RecyclerView
+    private var items: MutableList<ItemEntity> = mutableListOf()
     private lateinit var shoppingListViewModel:ShoppinglistViewModel
 
-    lateinit var adapter: ItemAdapter
+    private lateinit var adapter: ItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,27 +84,66 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        when(menuItem.itemId){
             R.id.delete -> {
-                for(i in items){
-                    deleteItem(i)
-                }
+                deleteAll()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.backup -> {
+                createBackup()
+            }
+            R.id.restore -> {
+                deleteAll()
+                restoreBackup()
             }
         }
-        return super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(menuItem)
+    }
+
+    private fun deleteAll(){
+        val itr = items.iterator()
+        while (itr.hasNext()){
+            deleteItem(itr.next())
+        }
+        items.clear()
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    private fun createBackup(){
+        val gson = Gson()
+        val jsonItemList: String = gson.toJson(items)
+        this.openFileOutput("backup.json", Context.MODE_PRIVATE).use{
+            it.write(jsonItemList.toByteArray())
+        }
+        showMessage("Backup created successfully!")
+    }
+
+    private fun restoreBackup(){
+        val backup = this.openFileInput("backup.json")
+        val rd = BufferedReader(InputStreamReader(backup))
+        val listType: Type = object  : TypeToken<MutableList<ItemEntity?>?>(){}.type
+        val gson = Gson()
+        items = gson.fromJson(rd, listType)
+        val itr = items.iterator()
+        while (itr.hasNext()){
+            shoppingListViewModel.add(itr.next().name,itr.next().quantity,itr.next().price)
+        }
+        recyclerView.adapter?.notifyDataSetChanged()
+        binding.tvTotal.text =  calculateTotal()
     }
 
     private fun showMessage(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
     }
 
-     fun openAddActivity() {
+     private fun openAddActivity() {
         val intent = Intent(this, addItemActivity::class.java)
         startActivity(intent)
     }
 
-    fun setUpRecyclerView() {
+    private fun setUpRecyclerView() {
         adapter = ItemAdapter(items, { itemEntity ->  updateItem(itemEntity) }, { itemEntity -> deleteItem(itemEntity) })
         recyclerView = binding.rvTask
         recyclerView.setHasFixedSize(true)
@@ -117,10 +161,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateTotal(): String {
-        var total: Double = 0.0
+        var total = 0.0
         for(i in items){
             total += i.price * i.quantity
         }
         return String.format("%.2f",(total))
     }
+    
 }
+
+
