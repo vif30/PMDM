@@ -1,23 +1,17 @@
 package com.viizfo.p5_shoppinglist.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.viizfo.p5_shoppinglist.adapters.ItemAdapter
-import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
 import com.viizfo.p5_shoppinglist.databinding.ActivityAddItemBinding
 import com.viizfo.p5_shoppinglist.viewmodel.ShoppinglistViewModel
 
-class addItemActivity : AppCompatActivity() {
+class AddItemActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityAddItemBinding
-
-    var items: MutableList<ItemEntity> = mutableListOf()
-
     private lateinit var shoppingListViewModel:ShoppinglistViewModel
-
-    lateinit var adapter: ItemAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +41,5 @@ class addItemActivity : AppCompatActivity() {
     private fun addItem() {
         shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString().toInt(), binding.etPrice.text.toString().toDouble())
     }
-    private fun updateItem(itemEntity: ItemEntity) {
-        shoppingListViewModel.update(itemEntity)
-    }
-    private fun deleteItem(itemEntity: ItemEntity) {
-        shoppingListViewModel.delete(itemEntity)
-    }
+
 }

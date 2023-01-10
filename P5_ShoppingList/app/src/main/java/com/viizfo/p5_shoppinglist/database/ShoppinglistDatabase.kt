@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
 
-@Database(entities = arrayOf(ItemEntity::class), version = 1)
+@Database(entities = [ItemEntity::class], version = 1)
 abstract class ShoppinglistDatabase : RoomDatabase() {
     abstract fun itemDao(): ItemDAO
 

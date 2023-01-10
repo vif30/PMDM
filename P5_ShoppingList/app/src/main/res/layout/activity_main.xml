@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:backgroundTint="@color/black"
+    android:backgroundTint="@color/blue"
     android:fitsSystemWindows="true">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -24,21 +24,24 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@android:drawable/ic_menu_add" />
+        android:src="@android:drawable/ic_menu_add"
+        android:tint="@color/navy_blue"
+        app:backgroundTint="@color/power_green"
+        app:rippleColor="@color/navy_blue" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="91dp"
         android:layout_gravity="bottom"
         android:background="@color/white"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="@color/navy_blue">
 
         <TextView
             android:id="@+id/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textColor="#FD0000"
+            android:textColor="#1E88E5"
             android:textSize="48sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

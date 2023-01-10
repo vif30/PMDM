@@ -11,9 +11,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ShoppinglistViewModel(application: Application): AndroidViewModel(application) {
-    val context = application
-
-    var myDao:MyDao = ShoppinglistDatabase.getInstance(context)
+    private val context = application
+    private var myDao:MyDao = ShoppinglistDatabase.getInstance(context)
 
     val itemListLD:MutableLiveData<MutableList<ItemEntity>> = MutableLiveData()
     val updateItemLD:MutableLiveData<ItemEntity?> = MutableLiveData()
@@ -51,4 +50,5 @@ class ShoppinglistViewModel(application: Application): AndroidViewModel(applicat
                 updateItemLD.postValue(null)
         }
     }
+
 }

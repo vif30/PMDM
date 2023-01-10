@@ -2,11 +2,11 @@ package com.viizfo.p5_shoppinglist.ui
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +20,10 @@ import com.viizfo.p5_shoppinglist.viewmodel.ShoppinglistViewModel
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.lang.reflect.Type
+
+/*Android application to create a shopping list, it allows the persistence of data thanks to the use of a db. By adding the price and quantity values,
+the app calculates the total cost of the shopping basket and displays it on the user's screen. In addition, it allows the possibility of creating a backup
+copy of the database, as well as the possibility of restoring the backup copy and deleting the complete list.*/
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -97,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             R.id.restore -> {
                 deleteAll()
                 restoreBackup()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(menuItem)
@@ -107,8 +113,9 @@ class MainActivity : AppCompatActivity() {
         while (itr.hasNext()){
             deleteItem(itr.next())
         }
-        items.clear()
+
         recyclerView.adapter?.notifyDataSetChanged()
+        items.clear()
     }
 
     private fun createBackup(){
@@ -121,14 +128,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun restoreBackup(){
+        deleteAll()
         val backup = this.openFileInput("backup.json")
         val rd = BufferedReader(InputStreamReader(backup))
         val listType: Type = object  : TypeToken<MutableList<ItemEntity?>?>(){}.type
         val gson = Gson()
         items = gson.fromJson(rd, listType)
-        val itr = items.iterator()
-        while (itr.hasNext()){
-            shoppingListViewModel.add(itr.next().name,itr.next().quantity,itr.next().price)
+        items.forEach{
+            shoppingListViewModel.add(it.name, it.quantity, it.price)
         }
         recyclerView.adapter?.notifyDataSetChanged()
         binding.tvTotal.text =  calculateTotal()
@@ -139,7 +146,7 @@ class MainActivity : AppCompatActivity() {
     }
 
      private fun openAddActivity() {
-        val intent = Intent(this, addItemActivity::class.java)
+        val intent = Intent(this, AddItemActivity::class.java)
         startActivity(intent)
     }
 
@@ -167,7 +174,7 @@ class MainActivity : AppCompatActivity() {
         }
         return String.format("%.2f",(total))
     }
-    
+
 }
 
 

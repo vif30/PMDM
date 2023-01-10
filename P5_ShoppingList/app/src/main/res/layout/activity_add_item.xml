@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@color/blue"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="Add a product to the shopping list"
+        android:textColor="@color/navy_blue"
         android:textSize="24sp" />
+
     <EditText
         android:id="@+id/eTName"
         android:layout_width="match_parent"
@@ -17,7 +22,9 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/navy_blue" />
+
     <EditText
         android:id="@+id/eTQuantity"
         android:layout_width="match_parent"
@@ -25,7 +32,9 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Quantity"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/navy_blue" />
+
     <EditText
         android:id="@+id/etPrice"
         android:layout_width="match_parent"
@@ -33,10 +42,15 @@
         android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Unit Price"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textColor="@color/navy_blue" />
+
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add" />
+        android:backgroundTint="@color/power_green"
+        android:text="Add"
+        android:textColor="@color/navy_blue"
+        app:iconTint="@color/navy_blue" />
 </LinearLayout>

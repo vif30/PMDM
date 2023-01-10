@@ -1,6 +1,6 @@
 package com.viizfo.p5_shoppinglist.adapters
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.viizfo.p5_shoppinglist.R
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
-import com.viizfo.p5_shoppinglist.ui.editItemActivity
 
 
 class ItemAdapter(
-    val items: List<ItemEntity>,
-    val updateItem: (ItemEntity) -> Unit,
-    val deleteItem: (ItemEntity) -> Unit
+    private val items: List<ItemEntity>,
+    private val updateItem: (ItemEntity) -> Unit,
+    private val deleteItem: (ItemEntity) -> Unit
 ) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,8 +24,7 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        holder.itemView.setOnClickListener{
-        }
+
         holder.bind(item, updateItem, deleteItem)
     }
 
@@ -34,11 +32,11 @@ class ItemAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val tvItem = view.findViewById<TextView>(R.id.tvName)
-        val tvQuantity = view.findViewById<TextView>(R.id.tvQuantity)
-        val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
-        val tvTotalPrice = view.findViewById<TextView>(R.id.tvTotalPrice)
-        val ibtnDelete = view.findViewById<ImageButton>(R.id.ibtnDelete)
+        private val tvItem: TextView = view.findViewById(R.id.tvName)
+        private val tvQuantity: TextView = view.findViewById(R.id.tvQuantity)
+        private val tvPrice: TextView = view.findViewById(R.id.tvPrice)
+        private val tvTotalPrice: TextView = view.findViewById(R.id.tvTotalPrice)
+        private val ibtnDelete: ImageButton = view.findViewById(R.id.ibtnDelete)
 
         fun bind(item: ItemEntity, updateItem: (ItemEntity) -> Unit, deleteItem: (ItemEntity) -> Unit) {
             tvItem.text = item.name

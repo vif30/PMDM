@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:layout_marginRight="10dp">
+    android:layout_marginRight="10dp"
+    android:backgroundTint="@color/power_green">
 
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="63dp"
         android:maxLength="10"
+        android:textColor="@color/navy_blue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,6 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
+        android:textColor="@color/navy_blue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="11dp"
-        android:layout_marginRight="11dp"
+        android:textColor="@color/navy_blue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/tvQuantity"
@@ -58,6 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
+        android:textColor="@color/navy_blue"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,6 +77,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
+        android:backgroundTint="@color/power_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvTotalPrice"
