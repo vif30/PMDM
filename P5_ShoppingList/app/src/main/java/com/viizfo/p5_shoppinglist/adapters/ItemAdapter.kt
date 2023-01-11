@@ -1,6 +1,5 @@
 package com.viizfo.p5_shoppinglist.adapters
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.viizfo.p5_shoppinglist.R
 import com.viizfo.p5_shoppinglist.database.entities.ItemEntity
-
 
 class ItemAdapter(
     private val items: List<ItemEntity>,
@@ -24,14 +22,13 @@ class ItemAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-
         holder.bind(item, updateItem, deleteItem)
     }
 
     override fun getItemCount() = items.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
+        //initialising the layout variables
         private val tvItem: TextView = view.findViewById(R.id.tvName)
         private val tvQuantity: TextView = view.findViewById(R.id.tvQuantity)
         private val tvPrice: TextView = view.findViewById(R.id.tvPrice)
@@ -43,6 +40,7 @@ class ItemAdapter(
             tvQuantity.text = item.quantity.toString()
             tvPrice.text = item.price.toString()
             tvTotalPrice.text = String.format("%.2f",(item.price * item.quantity))
+            //Listener to subtract one unit until it reaches 0 and delete the item.
             ibtnDelete.setOnClickListener {
                 if(item.quantity > 1){
                     item.quantity--

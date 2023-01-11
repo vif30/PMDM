@@ -40,9 +40,7 @@ class MainActivity : AppCompatActivity() {
         }.root)
 
         shoppingListViewModel = ViewModelProvider(this)[ShoppinglistViewModel::class.java]
-
         shoppingListViewModel.getAllItems()
-
         shoppingListViewModel.itemListLD.observe(this){
             items.clear()
             items.addAll(it)
@@ -59,35 +57,37 @@ class MainActivity : AppCompatActivity() {
         }
         shoppingListViewModel.deleteItemLD.observe(this){ id ->
             if(id != -1){
-                val item = items.filter {
-                    it.id == id
-                }[0]
-                val pos = items.indexOf(item)
-                items.removeAt(pos)
-                recyclerView.adapter?.notifyItemRemoved(pos)
-                binding.tvTotal.text = calculateTotal()
+                try {
+                    val item = items.filter {
+                        it.id == id
+                    }[0]
+                    val pos = items.indexOf(item)
+                    items.removeAt(pos)
+                    recyclerView.adapter?.notifyItemRemoved(pos)
+                    binding.tvTotal.text = calculateTotal()
+                } catch (e:IndexOutOfBoundsException ){
+
+                }
             }else{
                 showMessage("Error deleting item")
             }
         }
-
         shoppingListViewModel.insertItemLD.observe(this){
             items.add(it)
             recyclerView.adapter?.notifyItemInserted(items.size)
         }
-
 
         binding.fabItem.setOnClickListener {
             openAddActivity()
         }
         setUpRecyclerView()
     }
-
+//Function to setup the options menu
     override fun onCreateOptionsMenu (menu: Menu?): Boolean {
         menuInflater.inflate (R.menu.my_menu, menu)
         return true
     }
-
+//Function to setup the menu listeners
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when(menuItem.itemId){
             R.id.delete -> {
@@ -107,17 +107,15 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(menuItem)
     }
-
+//Function to delete all items
     private fun deleteAll(){
-        val itr = items.iterator()
-        while (itr.hasNext()){
-            deleteItem(itr.next())
+        items.forEach{
+            deleteItem(it)
         }
-
         recyclerView.adapter?.notifyDataSetChanged()
         items.clear()
     }
-
+//Function to create the backup of the db
     private fun createBackup(){
         val gson = Gson()
         val jsonItemList: String = gson.toJson(items)
@@ -126,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         }
         showMessage("Backup created successfully!")
     }
-
+//Function to delete all items and restore the saved db
     private fun restoreBackup(){
         deleteAll()
         val backup = this.openFileInput("backup.json")
@@ -140,16 +138,16 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter?.notifyDataSetChanged()
         binding.tvTotal.text =  calculateTotal()
     }
-
+//Function to show a message with a toast
     private fun showMessage(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
     }
-
+//Function to open the addItemActivity
      private fun openAddActivity() {
         val intent = Intent(this, AddItemActivity::class.java)
         startActivity(intent)
     }
-
+//Function to setup the recyclerView
     private fun setUpRecyclerView() {
         adapter = ItemAdapter(items, { itemEntity ->  updateItem(itemEntity) }, { itemEntity -> deleteItem(itemEntity) })
         recyclerView = binding.rvTask
@@ -157,16 +155,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-
+//Function to update the selected item
     private fun updateItem(itemEntity: ItemEntity) {
         shoppingListViewModel.update(itemEntity)
     }
-
+//Function to delete the selected item
     private fun deleteItem(itemEntity: ItemEntity) {
         shoppingListViewModel.delete(itemEntity)
-
     }
-
+//Function to calculate the total price of the shoppingList
     private fun calculateTotal(): String {
         var total = 0.0
         for(i in items){
@@ -174,7 +171,6 @@ class MainActivity : AppCompatActivity() {
         }
         return String.format("%.2f",(total))
     }
-
 }
 
 

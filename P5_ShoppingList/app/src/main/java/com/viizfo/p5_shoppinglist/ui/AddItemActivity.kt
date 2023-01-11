@@ -26,14 +26,11 @@ class AddItemActivity : AppCompatActivity() {
                 showMessage("Error updating item")
             }
         }
+        //Setting the listenet to add the item
         binding.btnAdd.setOnClickListener{
             addItem()
             openMainActivity()
         }
-    }
-    private fun openMainActivity() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
     }
     private fun showMessage(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
@@ -41,5 +38,8 @@ class AddItemActivity : AppCompatActivity() {
     private fun addItem() {
         shoppingListViewModel.add(binding.eTName.text.toString(), binding.eTQuantity.text.toString().toInt(), binding.etPrice.text.toString().toDouble())
     }
-
+    private fun openMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
 }
