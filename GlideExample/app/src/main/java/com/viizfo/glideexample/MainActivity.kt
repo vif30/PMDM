@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.squareup.picasso.Picasso
 import com.viizfo.glideexample.databinding.ActivityMainBinding
 import java.security.AccessController.getContext
 import kotlin.random.Random
@@ -33,13 +34,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeImage() {
         val url = "https://picsum.photos/200?rand=" + Random.nextInt()
-
+        Picasso.get().load(url).into (binding.ivImage)
         //With this work around we can show a gif before loading
-        Glide.with(this).load(url)
+        /*Glide.with(this).load(url)
             .thumbnail(Glide.with(this).load(R.raw.loading))
             .fitCenter()
             .dontAnimate()
-            .into(binding.ivImage);
+            .into(binding.ivImage);*/
 
         /*Glide.with(this)
             .load(url) //Image that we want to show
