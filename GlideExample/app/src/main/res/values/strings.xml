@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">GlideExample</string>
+    <string name="btn_text">Change Image</string>
+</resources>
