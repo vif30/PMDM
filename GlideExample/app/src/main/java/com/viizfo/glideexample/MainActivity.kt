@@ -34,18 +34,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeImage() {
         val url = "https://picsum.photos/200?rand=" + Random.nextInt()
-        Picasso.get().load(url).into (binding.ivImage)
+        //Picasso.get().load(url).into (binding.ivImage)
         //With this work around we can show a gif before loading
-        /*Glide.with(this).load(url)
+        Glide.with(this).load(url)
             .thumbnail(Glide.with(this).load(R.raw.loading))
             .fitCenter()
             .dontAnimate()
-            .into(binding.ivImage);*/
+            .into(binding.ivImage);
 
-        /*Glide.with(this)
+        Glide.with(this)
             .load(url) //Image that we want to show
             .placeholder(R.raw.loading) //Image that will be displayed while loading the image to be displayed
             .error(ERROR_IMAGE) //Image that we will show if something goes wrong. it is typically use a drawable image stored
-            .into(binding.ivImage) //ImageView that will contain the image*/
+            .into(binding.ivImage) //ImageView that will contain the image
     }
 }

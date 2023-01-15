@@ -13,7 +13,6 @@ import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private lateinit var binding: ActivityMainBinding
-
     private lateinit var adapter: DogAdapter
     private val dogImages = mutableListOf<String>()
 

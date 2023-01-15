@@ -1,11 +1,8 @@
 package com.viizfo.p6_apirest.model
 
-
-
-data class SuperHeroResponse(
+data class ApiResponse(
     var response: String,
-    var id: Int,
+    var id: String,
     var name: String,
-    var powerstats: List<String>
-
+    var url: List<String>
 )
