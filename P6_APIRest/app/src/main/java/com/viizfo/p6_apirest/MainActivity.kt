@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.viizfo.p6_apirest.adapter.SuperHeroAdapter
 import com.viizfo.p6_apirest.adapter.SuperHeroProvider
 import com.viizfo.p6_apirest.databinding.ActivityMainBinding
+import com.viizfo.p6_apirest.model.SuperHero
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: SuperHeroAdapter
-    private val superHeroImage = mutableListOf<String>()
+    private val superHeroImage = mutableListOf<SuperHero?>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener  {
 
     private fun searchById(query:String){
         MainScope().launch {
-            val superheroList = SuperHeroProvider.getSuperHeroById(query)
+            val superheroList: MutableList<SuperHero?> = mutableListOf(SuperHeroProvider.getSuperHeroById(query))
             if(superheroList.isNotEmpty()){
                 superHeroImage.clear()
                 superHeroImage.addAll(superheroList)

@@ -1,5 +1,6 @@
 package com.viizfo.p6_apirest.adapter
 
+import com.viizfo.p6_apirest.model.SuperHero
 import com.viizfo.p6_apirest.provider.APIService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,14 +18,17 @@ object SuperHeroProvider {
             .build()
     }
 
-    suspend fun getSuperHeroById(id:String):List<String> = withContext(Dispatchers.IO){
-        var superheroe = emptyList<String>()
-        val call = getRetrofit().create(APIService::class.java).getSuperHeroById("$id/image")
+    suspend fun getSuperHeroById(id:String):SuperHero? = withContext(Dispatchers.IO){
+        var superheroe: SuperHero? = null
+        val call = getRetrofit().create(APIService::class.java).getSuperHeroById("$id")
         if(call.isSuccessful){
             val heroe = call.body()
             val name = heroe?.name.toString()
+            val id = heroe?.id.toString()
+            val image = heroe?.image
+            val superheroe = image?.let { SuperHero(id, name, it) }
             //val image = heroe?.url ?: emptyList()
-            superheroe = superheroe + name
+            return@withContext superheroe
         }
         superheroe
     }

@@ -4,5 +4,6 @@ data class ApiResponse(
     var response: String,
     var id: String,
     var name: String,
-    var url: List<String>
+    var image: Image,
+    var powerstats: Stats
 )
