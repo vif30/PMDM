@@ -35,8 +35,12 @@ class SuperHeroAdapter(private val superList: MutableList<SuperHero?>) : Recycle
 
             //binding.tvId.text = id
             binding.tvName.text = superhero.name
-            binding.tvId.text = superhero.id
-
+            binding.tvFullName.text = superhero.biography.fullName
+            binding.tvPublisher.text = superhero.biography.publisher
+            var Aliases = ""
+            superhero.biography.aliases.forEach{if(it == superhero.biography.aliases.last()) Aliases += it else Aliases += it + "\n" }
+            binding.tvAliases.text = Aliases
+            binding.tvFirstApp.text = superhero.biography.firstApp
         }
 
     }
