@@ -1,12 +1,10 @@
 package com.viizfo.p6_apirest.model
 
 import com.google.gson.annotations.SerializedName
-import java.lang.reflect.Constructor
-
+//all data that all superheroes have
 data class SuperHero constructor(
     var id: String,
     var name: String,
-    //var powerstats: Stats,
     var biography: Biography,
     var image: Image
 )
@@ -18,14 +16,6 @@ data class Biography(
     var publisher: String
 )
 
-data class Stats(
-    var intelligence: String,
-    var strength: String,
-    var speed: String,
-    var durability: String,
-    var power: String,
-    var combat: String,
-)
 data class Image(
     var url: String
 )

@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginTop="16dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="NAME"
                 android:textSize="34sp" />
 
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="Full Name:"
                 android:textAllCaps="true"
                 android:textSize="26sp" />
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="FullName"
                 android:textSize="24sp" />
 
@@ -63,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="Alias:"
                 android:textAllCaps="true"
                 android:textSize="26sp" />
@@ -73,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="Alias"
                 android:textSize="24sp" />
 
@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="Publisher:"
                 android:textAllCaps="true"
                 android:textSize="26sp" />
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="publisher"
                 android:textSize="24sp" />
 
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="First Appearance:"
                 android:textAllCaps="true"
                 android:textSize="26sp" />
@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="casual"
+                android:fontFamily="@font/marvel"
                 android:text="first app"
                 android:textSize="24sp" />
 

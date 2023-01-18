@@ -26,14 +26,8 @@ class SuperHeroAdapter(private val superList: MutableList<SuperHero?>) : Recycle
     inner class SuperHeroViewHolder(view: View): RecyclerView.ViewHolder(view) {
         private val binding = ItemSuperheroBinding.bind(view)
         fun bind (superhero: SuperHero) {
-            /*Glide.with(context)
-                .load(image)
-                .placeholder(R.raw.loading) //Image that will be displayed while loading the image to be displayed
-                .error(ERROR_IMAGE) //Image that we will show if something goes wrong. it is typically use a drawable image stored
-                .into(binding.ivSuperhero) //ImageView that will contain the image*/
+            //Setting the data from the API in the layout
             Picasso.get().load(superhero.image.url).into(binding.ivSuperhero)
-
-            //binding.tvId.text = id
             binding.tvName.text = superhero.name
             binding.tvFullName.text = superhero.biography.fullName
             binding.tvPublisher.text = superhero.biography.publisher
@@ -42,7 +36,5 @@ class SuperHeroAdapter(private val superList: MutableList<SuperHero?>) : Recycle
             binding.tvAliases.text = Aliases
             binding.tvFirstApp.text = superhero.biography.firstApp
         }
-
     }
-
 }

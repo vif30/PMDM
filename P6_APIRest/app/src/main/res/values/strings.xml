@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">P6_APIRest</string>
+    <string name="app_name">Superheroes info</string>
+    <string name="help">WRITE THE NAME OF A SUPERHERO</string>
+    <string name="superList">List of Superheroes</string>
 </resources>
