@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "MediaPlayerExample"
+rootProject.name = "QR_Reader_Example"
 include ':app'
