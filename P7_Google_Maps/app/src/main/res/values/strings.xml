@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">P7_Google_Maps</string>
+    <string name="title_activity_maps">MapsActivity</string>
+</resources>
