@@ -33,20 +33,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
 
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
-        locationRequest = LocationRequest.create()
-        locationRequest !!. priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
-        locationRequest !!. interval = 16000 // 16seconds
-        locationRequest !!. fastestInterval = 8000 // 8seconds
-        locationRequest.smallestDisplacement = 0f
-
-
         locationCallback = object: LocationCallback(){
             override fun onLocationResult(locationResult: LocationResult){
                 super.onLocationResult(locationResult)
@@ -79,14 +70,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        val torrent = LatLng(40.0, 0.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.addMarker(MarkerOptions().position(torrent).title("Meridian Park").snippet("Inhabitants: 180000")) // Add extra information below the title)
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-
+        mMap.uiSettings.isCompassEnabled = false
+        mMap.uiSettings.isRotateGesturesEnabled = false
+        val mislata = LatLng(39.47517659489558, -0.4179138332133683)
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(mislata))
         /*mMap.setOnCameraIdleListener {
             Toast.makeText(this,
                 "Zoom changed to: " + mMap.cameraPosition.zoom,
@@ -97,18 +84,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
                 "Map clicked on lat: ${latlng.latitude}, long: ${latlng.longitude}",
                 Toast.LENGTH_SHORT).show()
         }*/
-        /*val SYDNEY = LatLng(-33.88,151.21)
-        val MOUNTAIN_VIEW = LatLng(37.4, -122.1)
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SYDNEY, 15f)) //Starts with zoom of 15 zoom
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mislata, 15f)) //Starts with zoom of 15 zoom
         mMap.animateCamera(CameraUpdateFactory.zoomIn())
         mMap.animateCamera(CameraUpdateFactory.zoomTo(10f), 5000, null) //5 seconds
         val cameraPosition = CameraPosition.Builder()
-            .target(MOUNTAIN_VIEW) //final destination
-            .zoom(17f) //new final zoom
-            .bearing(90f) //camera orientation to the east
-            .tilt(30f) //camera to 30 degrees
+            .target(mislata) //final destination
+            .zoom(10f) //new final zoom
+            //.bearing(90f) //camera orientation to the east
+            //.tilt(30f) //camera to 30 degrees
             .build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))*/
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
         mMap.setMapStyle (MapStyleOptions.loadRawResourceStyle (this, R.raw.style_json))
     }
     private fun requestLocations() {
