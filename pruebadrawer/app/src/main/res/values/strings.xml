@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">pruebadrawer</string>
+    <string name="menu_home">HOME</string>
+    <string name="menu_webtools">WEBTOOLS</string>
+    <string name="menu_tools">MENUTOOLS</string>
+    <string name="menu_settings">MENU SETTINGS</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>

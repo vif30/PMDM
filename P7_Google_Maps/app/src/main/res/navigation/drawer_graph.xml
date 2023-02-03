@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/drawer1Fragment">
+
+    <fragment
+        android:id="@+id/drawer1Fragment"
+        android:name="com.cartatar.navigation.Drawer1Fragment"
+        android:label="fragment drawer 1"
+        tools:layout="@layout/fragment_drawer1" />
+    <fragment
+        android:id="@+id/drawer2Fragment"
+        android:name="com.cartatar.navigation.Drawer2Fragment"
+        android:label="fragment drawer 2"
+        tools:layout="@layout/fragment_drawer2" />
+    <fragment
+        android:id="@+id/drawer3Fragment"
+        android:name="com.cartatar.navigation.Drawer3Fragment"
+        android:label="fragment drawer 3"
+        tools:layout="@layout/fragment_drawer3" />
+</navigation>
