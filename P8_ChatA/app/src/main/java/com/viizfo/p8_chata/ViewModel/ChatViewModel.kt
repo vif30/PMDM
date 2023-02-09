@@ -12,6 +12,8 @@ import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.MY_ACTION_RECEIVER_ACTI
 import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_ACTION
 import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_EXTRA
 import com.viizfo.p8_chata.model.Message
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ChatViewModel(application: Application):AndroidViewModel(application) {
     val context: Context = application
@@ -30,7 +32,11 @@ class ChatViewModel(application: Application):AndroidViewModel(application) {
         IntentFilter().apply {
             addAction(MY_ACTION_RECEIVER_ACTION)
             br = MyBroadcastReceiver(){
-                onMessageReceived(it)
+                val msg = it
+                val sdf = SimpleDateFormat("dd/MM/yy hh:mm")
+                val date = sdf.format(Date())
+                val message = Message(msg, date, 2)
+                onMessageReceived(message)
             }
             context.registerReceiver(br, this)
         }

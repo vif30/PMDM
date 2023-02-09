@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 val sdf = SimpleDateFormat("dd/MM/yy hh:mm")
                 val date = sdf.format(Date())
                 val mssg = binding.etChat.text.toString()
-                val message = Message(mssg, date)
+                val message = Message(mssg, date, 1)
                 chatViewModel.sendMessage(message)
             }
         }

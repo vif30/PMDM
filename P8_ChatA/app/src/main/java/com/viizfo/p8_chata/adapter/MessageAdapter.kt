@@ -1,5 +1,7 @@
 package com.viizfo.p8_chata.adapter
 
+import android.graphics.Color
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +28,12 @@ class MessageAdapter(private val messageList: MutableList<Message>) : RecyclerVi
         fun bind (message: Message) {
             binding.tvMessage.text = message.text
             binding.tvDate.text = message.date
+            if(message.owner == 1){
+                binding.Card.layout(0,0,10,0)
+                binding.tvMessage.setTextColor(Color.RED)
+            }else {
+                binding.tvMessage.setTextColor(Color.BLUE)
+            }
         }
     }
 }
