@@ -64,7 +64,6 @@ class MainActivity : AppCompatActivity() {
         val messagelist = mutableListOf<Message>()
         messagelist.add(message)
         if(messagelist.isNotEmpty()){
-
             messageList.addAll(messagelist)
             adapter.notifyDataSetChanged()
         }
