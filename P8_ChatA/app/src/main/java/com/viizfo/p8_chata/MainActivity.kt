@@ -2,10 +2,8 @@ package com.viizfo.p8_chata
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
-import androidx.core.text.HtmlCompat
+
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.viizfo.p8_chata.ViewModel.ChatViewModel
@@ -25,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
         initRecyclerView()
 
-
         chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
 
         chatViewModel.myMessageLD.observe(this){
@@ -41,7 +38,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnSend.setOnClickListener {
-
             if(!binding.etChat.text.isNullOrEmpty()){
                 val sdf = SimpleDateFormat("dd/MM/yy hh:mm")
                 val date = sdf.format(Date())
@@ -51,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        /*sendDelayedFunction(200){ */hideKeyboard()
     }
 
     private fun initRecyclerView() {
@@ -68,12 +63,7 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
         binding.etChat.setText("")
-    }
-
-
-    private fun hideKeyboard() {
-        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        binding.rvChat.scrollToPosition(messageList.size - 1)
     }
 
 }

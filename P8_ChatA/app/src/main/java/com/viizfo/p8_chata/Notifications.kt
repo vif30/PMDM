@@ -28,7 +28,7 @@ class Notifications(private val context: Context, private val title:String, priv
 
     private fun makePendingIntent() {
         val intent = Intent(context,MainActivity::class.java)
-        //intent.flags = Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+        intent.flags = Intent.FLAG_ACTIVITY_MULTIPLE_TASK
         pendingIntent = PendingIntent.getActivity(context, 0,intent,0)
     }
 

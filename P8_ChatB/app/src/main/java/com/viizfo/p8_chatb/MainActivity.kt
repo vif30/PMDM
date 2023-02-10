@@ -7,16 +7,23 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModelProvider
-import com.viizfo.p8_chata.ViewModel.ChatViewModel
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.viizfo.p8_chatb.adapter.MessageAdapter
+import com.viizfo.p8_chatb.viewModel.ChatViewModel
 import com.viizfo.p8_chatb.databinding.ActivityMainBinding
+import com.viizfo.p8_chatb.model.Message
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var chatViewModel: ChatViewModel
+    private lateinit var adapter: MessageAdapter
+    private val messageList = mutableListOf<Message>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(ActivityMainBinding.inflate(layoutInflater).also { binding = it }.root)
+        initRecyclerView()
 
 
         chatViewModel = ViewModelProvider(this)[ChatViewModel::class.java]
@@ -28,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         chatViewModel.messageLD.observe(this){
                 messageList ->
-            for(message:String in messageList)
+            for(message:Message in messageList)
                 upload(message, false)
             chatViewModel.notifyDeliver()
         }
@@ -36,42 +43,31 @@ class MainActivity : AppCompatActivity() {
         binding.btnSend.setOnClickListener {
 
             if(!binding.etChat.text.isNullOrEmpty()){
-                chatViewModel.sendMessage(binding.etChat.text.toString())
+                val sdf = SimpleDateFormat("dd/MM/yy hh:mm")
+                val date = sdf.format(Date())
+                val mssg = binding.etChat.text.toString()
+                val message = Message(mssg, date, 1)
+                chatViewModel.sendMessage(message)
             }
         }
 
-        /*sendDelayedFunction(200){ */hideKeyboard()
     }
 
-    private fun upload(message:String, isOwn:Boolean = true) {
-        val tv = TextView(this)
-        tv.text = HtmlCompat.fromHtml("${message}", HtmlCompat.FROM_HTML_MODE_COMPACT)
-        if(isOwn) tv.textAlignment = View.TEXT_ALIGNMENT_VIEW_END
-        else tv.textAlignment = View.TEXT_ALIGNMENT_VIEW_START
+    private fun initRecyclerView() {
+        adapter = MessageAdapter(messageList)
+        binding.rvChat.layoutManager = LinearLayoutManager(this)
+        binding.rvChat.adapter = adapter
+    }
 
-        /*//Adding Style
-        if (Build.VERSION.SDK_INT >= 23) {
-            tv.setTextAppearance(R.style.TextChat);
-        } else {
-            tv.setTextAppearance(tv.context, R.style.TextChat);
-        }*/
-
-        binding.linearChat.addView(tv)
-
+    private fun upload(message:Message, isOwn:Boolean = true) {
+        val messagelist = mutableListOf<Message>()
+        messagelist.add(message)
+        if(messagelist.isNotEmpty()){
+            messageList.addAll(messagelist)
+            adapter.notifyDataSetChanged()
+        }
         binding.etChat.setText("")
-        //hideKeyboard()
-
-        //updateScroll()
-
+        binding.rvChat.scrollToPosition(messageList.size - 1)
     }
 
-
-    private fun hideKeyboard() {
-        val inputMethodManager = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
-    }
-
-    private fun updateScroll(){
-        binding.svChat.fullScroll(View.FOCUS_DOWN)
-    }
 }

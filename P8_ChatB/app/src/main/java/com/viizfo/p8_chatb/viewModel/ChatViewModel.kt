@@ -1,4 +1,4 @@
-package com.viizfo.p8_chata.ViewModel
+package com.viizfo.p8_chatb.viewModel
 
 import android.app.Application
 import android.content.BroadcastReceiver
@@ -7,21 +7,20 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.viizfo.p8_chata.MyBroadcastReceiver
-import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.MY_ACTION_RECEIVER_ACTION
-import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_ACTION
-import com.viizfo.p8_chata.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_EXTRA
+import com.viizfo.p8_chatb.MyBroadcastReceiver
+import com.viizfo.p8_chatb.MyBroadcastReceiver.Companion.MY_ACTION_RECEIVER_ACTION
+import com.viizfo.p8_chatb.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_ACTION
+import com.viizfo.p8_chatb.MyBroadcastReceiver.Companion.OTHER_ACTION_RECEIVER_EXTRA
+import com.viizfo.p8_chatb.model.Message
 import java.text.SimpleDateFormat
 import java.util.*
 
 class ChatViewModel(application: Application):AndroidViewModel(application) {
     val context: Context = application
-
     private lateinit var br: BroadcastReceiver
-    val messageLD = MutableLiveData<MutableList<String>>()
-    val myMessageLD = MutableLiveData<String>()
-
-    private val messageList = mutableListOf<String>()
+    val messageLD = MutableLiveData<MutableList<Message>>()
+    val myMessageLD = MutableLiveData<Message>()
+    private val messageList = mutableListOf<Message>()
 
     init{
         bindReceiver()
@@ -31,30 +30,33 @@ class ChatViewModel(application: Application):AndroidViewModel(application) {
         IntentFilter().apply {
             addAction(MY_ACTION_RECEIVER_ACTION)
             br = MyBroadcastReceiver(){
-                onMessageReceived(it)
+                val msg = it
+                val sdf = SimpleDateFormat("dd/MM/yy hh:mm")
+                val date = sdf.format(Date())
+                val message = Message(msg, date, 2)
+                onMessageReceived(message)
             }
             context.registerReceiver(br, this)
         }
     }
 
     //Send the broadcast
-    fun sendMessage(message:String){
+    fun sendMessage(message: Message){
         Intent().apply {
             action = OTHER_ACTION_RECEIVER_ACTION
-            putExtra(OTHER_ACTION_RECEIVER_EXTRA, message)
+            putExtra(OTHER_ACTION_RECEIVER_EXTRA, message.text)
             context.sendOrderedBroadcast(this, null)
         }
         myOwnMessageSent(message)
     }
 
-    private fun myOwnMessageSent(message: String){
+    private fun myOwnMessageSent(message: Message){
         //Maybe data formatting and text style belong to the View
         myMessageLD.postValue(message)
     }
 
-    private fun onMessageReceived(message:String){
-        val date = SimpleDateFormat("dd/mm/yy hh:mm")
-        messageList.add(date.format(Date()) + message)
+    private fun onMessageReceived(message: Message){
+        messageList.add(message)
         messageLD.postValue(messageList)
     }
     fun notifyDeliver(){

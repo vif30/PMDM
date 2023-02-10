@@ -1,16 +1,14 @@
-package com.viizfo.p8_chata.adapter
+package com.viizfo.p8_chatb.adapter
 
 import android.graphics.Color
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
-import com.viizfo.p8_chata.R
-import com.viizfo.p8_chata.databinding.ActivityMainBinding
-import com.viizfo.p8_chata.databinding.ItemMessageBinding
-import com.viizfo.p8_chata.model.Message
+import com.viizfo.p8_chatb.R
+import com.viizfo.p8_chatb.databinding.ItemMessageBinding
+import com.viizfo.p8_chatb.model.Message
 
 class MessageAdapter(private val messageList: MutableList<Message>) : RecyclerView.Adapter<MessageAdapter.MessageViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
@@ -31,14 +29,13 @@ class MessageAdapter(private val messageList: MutableList<Message>) : RecyclerVi
             binding.tvMessage.text = message.text
             binding.tvDate.text = message.date
             if(message.owner == 1){
-                binding.tvMessage.setTextColor(Color.RED)
+                binding.tvMessage.setTextColor(Color.BLUE)
                 binding.tvMessage.gravity = Gravity.RIGHT
                 binding.tvDate.gravity = Gravity.RIGHT
             }else {
-                binding.tvMessage.setTextColor(Color.BLUE)
+                binding.tvMessage.setTextColor(Color.RED)
                 binding.tvMessage.gravity = Gravity.LEFT
                 binding.tvDate.gravity = Gravity.LEFT
-                binding.tvMessage.setTextColor(Color.BLUE)
             }
         }
     }

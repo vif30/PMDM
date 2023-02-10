@@ -17,11 +17,9 @@ import java.util.*
 
 class ChatViewModel(application: Application):AndroidViewModel(application) {
     val context: Context = application
-
     private lateinit var br: BroadcastReceiver
     val messageLD = MutableLiveData<MutableList<Message>>()
     val myMessageLD = MutableLiveData<Message>()
-
     private val messageList = mutableListOf<Message>()
 
     init{
