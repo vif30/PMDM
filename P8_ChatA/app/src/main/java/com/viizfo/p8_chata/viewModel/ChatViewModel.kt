@@ -1,4 +1,4 @@
-package com.viizfo.p8_chata.ViewModel
+package com.viizfo.p8_chata.viewModel
 
 import android.app.Application
 import android.content.BroadcastReceiver
@@ -21,11 +21,10 @@ class ChatViewModel(application: Application):AndroidViewModel(application) {
     val messageLD = MutableLiveData<MutableList<Message>>()
     val myMessageLD = MutableLiveData<Message>()
     private val messageList = mutableListOf<Message>()
-
     init{
         bindReceiver()
     }
-
+    //Function that receives the messages
     private fun bindReceiver(){
         IntentFilter().apply {
             addAction(MY_ACTION_RECEIVER_ACTION)
@@ -39,8 +38,7 @@ class ChatViewModel(application: Application):AndroidViewModel(application) {
             context.registerReceiver(br, this)
         }
     }
-
-    //Send the broadcast
+    //Function that sends the message to the other app
     fun sendMessage(message: Message){
         Intent().apply {
             action = OTHER_ACTION_RECEIVER_ACTION
@@ -49,22 +47,16 @@ class ChatViewModel(application: Application):AndroidViewModel(application) {
         }
         myOwnMessageSent(message)
     }
-
+    //Function that adds the message we send in our app
     private fun myOwnMessageSent(message: Message){
-        //Maybe data formatting and text style belong to the View
         myMessageLD.postValue(message)
     }
-
+    //Function that add the message we received in our app
     private fun onMessageReceived(message: Message){
         messageList.add(message)
         messageLD.postValue(messageList)
     }
     fun notifyDeliver(){
         messageList.clear()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        context.unregisterReceiver(br)
     }
 }
