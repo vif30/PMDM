@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name" translatable="false">Test1Ev</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_greetings">1st assessment test</string>
+    <string name="next">NEXT</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="send">SEND</string>
+    <string name="home">Home</string>
+    <string name="exit">EXIT</string>
+    <string name="questionnaire">Questionnaire</string>
+    <string name="result">Result</string>
+    <string name="result_questionnaire">You got %d out of %d</string>
+    <string name="questionnaire_title">Question %d / %d</string>
+</resources>
