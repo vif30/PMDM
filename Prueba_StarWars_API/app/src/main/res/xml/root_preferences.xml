@@ -1,0 +1,30 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Tema">
+
+        <SwitchPreferenceCompat
+            app:key="theme"
+            app:title="Activar tema oscuro"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Idioma">
+
+        <EditTextPreference
+            android:defaultValue="@string/tv_movies"
+            app:key="movie_text"
+            app:title="Título de pestaña películas"
+            android:singleLine="true"
+            app:useSimpleSummaryProvider="true"/>
+
+        <ListPreference
+            android:defaultValue="Spanish"
+            app:key="character_text"
+            app:title="Idioma"
+
+            app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

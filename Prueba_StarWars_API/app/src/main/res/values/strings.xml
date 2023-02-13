@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Prueba_StarWars_API</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_characters">Characters</string>
+    <string name="tv_movies">Escribe el nombre de un personaje</string>
+    <string name="btn_start">Start</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Notification -->
+    <string name="send_notification">Send Notification</string>
+    <string name="CHANNEL_ID">"MyAppNotifications"</string>
+    <string name="CHANNEL_NAME">My Notifications</string>
+    <string name="CHANNEL_DESCRIPTION">This channel is for this example App</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
