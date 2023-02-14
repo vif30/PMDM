@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Examen2ev</string>
+    <string name="word_not_found">Word not found</string>
+    <string name="description">Description</string>
+    <string name="word">Word</string>
+    <string name="listen">Listen</string>
+    <string name="no_sound">This word has no sound stored</string>
+    <string name="notification_title">Airplane Mode Changed</string>
+    <string name="airplane_mode_on">Airplane mode is ON</string>
+    <string name="airplane_mode_off">Ariplane mode is OFF</string>
+    <string name="flight_mode_on">Airplane mode is enabled so you can\'t access to the Internet</string>
+</resources>
